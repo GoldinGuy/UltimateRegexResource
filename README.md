@@ -39,6 +39,24 @@ TBD
 - [Git Resources](#-more-git-resources)
 - [Contributing](#contributing) -->
 
+### ✒️ Basics of Regex
+
+- Regular expressions start and end with "slash" characters `/`.
+- Patterns return the first [case-sensitive](https://en.wikipedia.org/wiki/Case_sensitivity) match they find by default.
+
+Therefore, given the sample string `red green blue BLUE blue`:
+
+`/blue/` matches the first instance of "blue."
+
+Regex includes several flags that are appended to the end of the expression to change behavior:
+
+| Syntax | Description        | Behavior                        |
+| ------ | ------------------ | ------------------------------- |
+| `g`    | _global_ flag      | Returns additional matches      |
+| `i`    | _insensitive_ flag | Allows case-insensitive matches |
+
+Using the same string as before, the updated regex `/blue/gi` will now return `blue BLUE blue`.
+
 ### ✏️ Characters in a Regex Story
 
 | Syntax | Description               | Matches                                                                                         | Example String | Example Expression | Example Match |
