@@ -1,4 +1,5 @@
 # UltimateRegexResource
+
 📝 A compilation of Regex syntax and resources for the Google DSC Regex Event
 
 [![Discuss On Discord][discord]][discord-url]
@@ -13,12 +14,11 @@ Regex is very powerful, but it's also often confusing to learn and difficult to 
 
 ![image](https://user-images.githubusercontent.com/47064842/124194070-ee6c7680-da95-11eb-8f9a-0a2d3f7c4f33.png)
 
-
-For that reason, I've compiled this syntax list and regex resources for your use below!
+For that reason, I've compiled this syntax list and some regex resources for your use below!
 
 The [Docs](https://github.com/GoldinGuy/UltimateRegexResource/tree/main/docs) folder of this repo contains a simple profile/resume static site built on HTML5 and [TailwindCSS](https://v1.tailwindcss.com/) to help learn about [Github pages](https://pages.github.com/). You can clone the repository and test it out yourself, or visit [this link](https://goldinguy.github.io/UltimateRegexResource/) to see a live demo. For more info look at the [README](https://github.com/GoldinGuy/UltimateRegexResource/blob/main/docs/README.md) for the `/docs` directory.
 
-This repo contains a powerpoint presentation explaning many of these commands that can be viewed online [here](https://docs.google.com/presentation/d/1BHa_ZxiyRRJQKaCRXTozmMhlPgkFcx-zn5esd5n-HWY/edit?usp=sharing).
+This repo contains a powerpoint presentation that can be viewed online [here](https://docs.google.com/presentation/d/1cTKU9GCAiubAG2wcFk9VdNwo5mn0ulzB7bJz9GICAWY/edit?usp=sharing).
 
 ## 📄 Table of Contents
 
@@ -33,57 +33,53 @@ This repo contains a powerpoint presentation explaning many of these commands th
 - [Git Resources](#-more-git-resources)
 - [Contributing](#contributing)
 
-
 ### ✏️ Characters in a Regex Story
 
-| Syntax | Description | Matches | Example String | Example Expression | Example Match |
-| ------- | ---------- |  ---------- |  ----- | ---------- | ---- |
-| `.` | *any* char | Literally any char *(except line break)* | `a-c1-3` | `a.c` | `a-c` | 
-| `\w` | *word* char | ASCII char *(Or Unicode char in Python & C#)* | `a-c1-3` | `\w-\w` | `a-c` | 
-| `\d` | *digit* char | Digit 0-9 *(Or Unicode digit in Python & C#)* | `a-c1-3` | `\d-\d` | `1-3` |
-| `\s` | *whitespace* char | Space, tab, vertical tab, newline, carriage return *(Or Unicode seperator in Python, C#, & JS)* | `a b` | `a\sb` | `a b` | 
-| `\W` | **NOT** *word* char | Anything `\w` does not match | `a-c1-3` | `\W-\W` | `1-3` | 
-| `\D` | **NOT** *digit* char |  Anything `\d` does not match | `a-c1-3` | `\D-\D` | `a-c` |
-| `\S` | **NOT** *whitespace* char | Anything `\s` does not match | `a-c1-3` | `\S-\S` | `a-c` |
-
+| Syntax | Description               | Matches                                                                                         | Example String | Example Expression | Example Match |
+| ------ | ------------------------- | ----------------------------------------------------------------------------------------------- | -------------- | ------------------ | ------------- |
+| `.`    | _any_ char                | Literally any char _(except line break)_                                                        | `a-c1-3`       | `a.c`              | `a-c`         |
+| `\w`   | _word_ char               | ASCII char _(Or Unicode char in Python & C#)_                                                   | `a-c1-3`       | `\w-\w`            | `a-c`         |
+| `\d`   | _digit_ char              | Digit 0-9 _(Or Unicode digit in Python & C#)_                                                   | `a-c1-3`       | `\d-\d`            | `1-3`         |
+| `\s`   | _whitespace_ char         | Space, tab, vertical tab, newline, carriage return _(Or Unicode seperator in Python, C#, & JS)_ | `a b`          | `a\sb`             | `a b`         |
+| `\W`   | **NOT** _word_ char       | Anything `\w` does not match                                                                    | `a-c1-3`       | `\W-\W`            | `1-3`         |
+| `\D`   | **NOT** _digit_ char      | Anything `\d` does not match                                                                    | `a-c1-3`       | `\D-\D`            | `a-c`         |
+| `\S`   | **NOT** _whitespace_ char | Anything `\s` does not match                                                                    | `a-c1-3`       | `\S-\S`            | `a-c`         |
 
 ### 🖋️ Special Characters
 
-| Syntax | Description | Matches | Example String | Example Expression | Example Match | 
-| ------- | ---------- |  ---------- | ------ | ---------- | ---- |
-| `\` | *escape* char | When placed before special chars, matches them. This includes the following chars: `[{()}].*+?$^/\` | `)$[]*{` | `\[\]` | `[]` | 
-
+| Syntax | Description   | Matches                                                                                             | Example String | Example Expression | Example Match |
+| ------ | ------------- | --------------------------------------------------------------------------------------------------- | -------------- | ------------------ | ------------- |
+| `\`    | _escape_ char | When placed before special chars, matches them. This includes the following chars: `[{()}].*+?$^/\` | `)$[]*{`       | `\[\]`             | `[]`          |
 
 ### 🖌️ Quantifiers
 
-| Syntax | Description |  Matches | Example String | Example Expression | Example Match |
-| ------- | ---------- |  ---------- |  ---------- | ---- | ---- |
-| `c?` | *0-1* quantifier | 0 or 1 of the preceding expression | `ccc` |  `c?` | `c` | 
-| `c{X}` | *X* quantifier | X of the preceding expression |  `ccc` | `c{2}` | `cc` | 
-| `c{X,}` | *X+* quantifier | X or more of the preceding expression | `ccc` |  `c{2,}` | `ccc` | 
-| `c{X,Y}` | *range* quantifier | Between X and Y of the preceding expression |  `ccc` | `c{1,3}` | `ccc` |
+| Syntax   | Description        | Matches                                     | Example String | Example Expression | Example Match |
+| -------- | ------------------ | ------------------------------------------- | -------------- | ------------------ | ------------- |
+| `c?`     | _0-1_ quantifier   | 0 or 1 of the preceding expression          | `ccc`          | `c?`               | `c`           |
+| `c{X}`   | _X_ quantifier     | X of the preceding expression               | `ccc`          | `c{2}`             | `cc`          |
+| `c{X,}`  | _X+_ quantifier    | X or more of the preceding expression       | `ccc`          | `c{2,}`            | `ccc`         |
+| `c{X,Y}` | _range_ quantifier | Between X and Y of the preceding expression | `ccc`          | `c{1,3}`           | `ccc`         |
 
-Beyond standard quantifiers, there are a few additional types: *greedy*, *lazy*, and *possessive*. 
+Beyond standard quantifiers, there are a few additional types: _greedy_, _lazy_, and _possessive_.
 
-| Syntax | Description |  Matches | Example String | Example Expression | Example Match |
-| ------- | ---------- |  ---------- |  ---------- | ---- | ---- |
-| `c*` | *0+ greedy* quantifier | as many chars as possible | `abccc` | `c*` | `ccc` | 
-| `c+` | *1+ greedy* quantifier | 1 or more of the preceding expression | `ccc` |  `c+` | `ccc` | 
-| `c*?` | *0+ lazy* quantifier | as few chars as possible | `abccc` | `c*?` | `c` | 
-| `c+?` | *1+ lazy* quantifier | as few chars as possible | `abccc` | `c+?` | `c` | 
-| `c*+` | *0+ possessive* quantifier | as many chars as possible without backtracking | `abccc` | `c*+` | `ccc` | 
-| `c++` | *1+ possessive* quantifier | as many chars as possible without backtracking | `abccc` | `c++` | `ccc` | 
-
+| Syntax | Description                | Matches                                                          | Example String | Example Expression | Example Match |
+| ------ | -------------------------- | ---------------------------------------------------------------- | -------------- | ------------------ | ------------- |
+| `c*`   | _0+ greedy_ quantifier     | as many chars as possible                                        | `abccc`        | `c*`               | `ccc`         |
+| `c+`   | _1+ greedy_ quantifier     | 1 or more of the preceding expression, as many chars as possible | `ccc`          | `c+`               | `ccc`         |
+| `c*?`  | _0+ lazy_ quantifier       | as few chars as possible                                         | `abccc`        | `c*?`              | `c`           |
+| `c+?`  | _1+ lazy_ quantifier       | as few chars as possible                                         | `abccc`        | `c+?`              | `c`           |
+| `c*+`  | _0+ possessive_ quantifier | as many chars as possible without backtracking                   | `abccc`        | `c*+`              | `ccc`         |
+| `c++`  | _1+ possessive_ quantifier | as many chars as possible without backtracking                   | `abccc`        | `c++`              | `ccc`         |
 
 ### 🖊️ Anchors
 
-| Syntax | Description |  Matches | Example Expression | Example Match |
-| ------- | ---------- |  ---------- |  ---------- | ---- |
-| `^c` | *start* anchor | start of string | `c?` | `c` | 
-| `c$` | *end* anchor | end of string | `c+` | `c` | 
-| `c{X}` | *X* quantifier | X of the preceding expression | `c{2}` | `cc` | 
-| `c{X,}` | *X-or-more* quantifier | X or more of the preceding expression | `c{2,}` | `ccc` | 
-| `c{X,Y}` | *range* quantifier | Between X and Y of the preceding expression | `c{1,3}` | `ccc` |
+| Syntax   | Description            | Matches                                     | Example Expression | Example Match |
+| -------- | ---------------------- | ------------------------------------------- | ------------------ | ------------- |
+| `^c`     | _start_ anchor         | start of string                             | `c?`               | `c`           |
+| `c$`     | _end_ anchor           | end of string                               | `c+`               | `c`           |
+| `c{X}`   | _X_ quantifier         | X of the preceding expression               | `c{2}`             | `cc`          |
+| `c{X,}`  | _X-or-more_ quantifier | X or more of the preceding expression       | `c{2,}`            | `ccc`         |
+| `c{X,Y}` | _range_ quantifier     | Between X and Y of the preceding expression | `c{1,3}`           | `ccc`         |
 
 <!-- ### 🖍️ The Nitty Gitty - Examine History & State
 
@@ -96,7 +92,7 @@ Beyond standard quantifiers, there are a few additional types: *greedy*, *lazy*,
 | `git log --oneline` | View changes (briefly) |
 | `git diff <source branch> <target branch>` | Preview changes before merging | -->
 
-<!-- 
+<!--
 ### ✒️ Regex Resources
 
 - [Git Docs](https://git-scm.com/doc), for those who want to dive deep into the documentation
@@ -115,7 +111,6 @@ Beyond standard quantifiers, there are a few additional types: *greedy*, *lazy*,
 - [Article on Writing Good Commit Messages](https://chris.beams.io/posts/git-commit/), which pretty much everyone could stand to improve ;)
 - [Github Student Developer Pack](https://education.github.com/pack), seriously, if you're a student you should have this
 - [Intro to Git Rebase](https://dev.to/maxwell_dev/the-git-rebase-introduction-i-wish-id-had), a great explanation of a powerful command -->
-
 
 ### Contributing
 
