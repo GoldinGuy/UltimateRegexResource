@@ -8,21 +8,27 @@
 
 <!-- 📄 TODO: Add after presentation [**Watch a recording of the Regex presentation here!**](https://www.youtube.com/watch?v=mqhDMv6nIVI) -->
 
-Git is the most popular [version control system](https://en.wikipedia.org/wiki/Version_control). It tracks changes you make to files and keeps a record of your work. It also lets you revert to earlier versions of your code if the need arises. Git also drastically improves collaboration, allowing multiple people to work in sync on the same source code. Below is a selection of the most helpful and commonly used Git commands to power up your programming!
+Regex, or [regular expressions](https://en.wikipedia.org/wiki/Regular_expression), are patterns used to match strings. Regex is commonly used for searching/filtering strings for information, input validation, and web scraping. "Real world" examples include everything from validating email addresses to formatting class names in a grades app.
 
-Regex is very powerful, but it's also often confusing to learn and difficult to remember.
+Regex is incredibly powerful, but it's also often intimidating to learn and difficult to remember.
 
 ![image](https://user-images.githubusercontent.com/47064842/124194070-ee6c7680-da95-11eb-8f9a-0a2d3f7c4f33.png)
 
-For that reason, I've compiled this syntax list and some regex resources for your use below!
+For that reason, I've compiled a selection of the most helpful and commonly used regex syntax and some regex resources for your use below!
 
-The [Docs](https://github.com/GoldinGuy/UltimateRegexResource/tree/main/docs) folder of this repo contains a simple profile/resume static site built on HTML5 and [TailwindCSS](https://v1.tailwindcss.com/) to help learn about [Github pages](https://pages.github.com/). You can clone the repository and test it out yourself, or visit [this link](https://goldinguy.github.io/UltimateRegexResource/) to see a live demo. For more info look at the [README](https://github.com/GoldinGuy/UltimateRegexResource/blob/main/docs/README.md) for the `/docs` directory.
+#### Notes
+
+<!-- The [Docs](https://github.com/GoldinGuy/UltimateRegexResource/tree/main/docs) folder of this repo contains a simple profile/resume static site built on HTML5 and [TailwindCSS](https://v1.tailwindcss.com/) to help learn about [Github pages](https://pages.github.com/). You can clone the repository and test it out yourself, or visit [this link](https://goldinguy.github.io/UltimateRegexResource/) to see a live demo. For more info look at the [README](https://github.com/GoldinGuy/UltimateRegexResource/blob/main/docs/README.md) for the `/docs` directory. -->
 
 This repo contains a powerpoint presentation that can be viewed online [here](https://docs.google.com/presentation/d/1cTKU9GCAiubAG2wcFk9VdNwo5mn0ulzB7bJz9GICAWY/edit?usp=sharing).
 
+Anywhere used below, `char` is shorthand for `character` (letter, digit or symbol), and `exp` is shorthand for a `regular expression`.
+
 ## 📄 Table of Contents
 
-- [Installing Git](https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/set-up-git)
+TBD
+
+<!-- - [Installing Git](https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/set-up-git)
 - [Gitting Existing Projects](#-gitting-existing-projects)
 - [Gitting Started - Setting Up a New Repo](#-gitting-started---setting-up-a-new-repo)
 - [The Nitty Gitty - Examine History & State](#-the-nitty-gitty---examine-history--state)
@@ -31,7 +37,7 @@ This repo contains a powerpoint presentation that can be viewed online [here](ht
 - [Git More - Pushing, Pulling, & Remote Origin](#-git-more---pushing-pulling--remote-origin)
 - [Gitting Complicated - The Danger Zone](#-gitting-complicated---the-danger-zone)
 - [Git Resources](#-more-git-resources)
-- [Contributing](#contributing)
+- [Contributing](#contributing) -->
 
 ### ✏️ Characters in a Regex Story
 
