@@ -48,62 +48,70 @@ Therefore, given the sample string `red green blue BLUE blue`:
 
 `/blue/` matches the first instance of "blue."
 
-Regex includes several flags that are appended to the end of the expression to change behavior:
+### 🖋️ Flags
 
-| Syntax | Description        | Behavior                        |
-| ------ | ------------------ | ------------------------------- |
-| `g`    | _global_ flag      | Returns additional matches      |
-| `i`    | _insensitive_ flag | Allows case-insensitive matches |
+| Syntax | Flag          | Behavior                                                       |
+| ------ | ------------- | -------------------------------------------------------------- |
+| `g`    | _global_      | Returns additional matches                                     |
+| `i`    | _insensitive_ | Allows case-insensitive matches                                |
+| `x`    | _verbose_     | Ignore whitespace & allow comments                             |
+| `u`    | _unicode_     | Expressions are treated as Unicode (UTF-16)                    |
+| `s`    | _singleline_  | Treats entire string as one line (allows `.` to match newline) |
+| `m`    | _multiline_   | Start & end anchors now trigger on each line                   |
 
-Using the same string as before, the updated regex `/blue/gi` will now return `blue BLUE blue`.
+Regex includes several flags that are appended to the end of the expression to change behavior. Using the same string as before, the updated regex `/blue/gi` will now return `blue BLUE blue`.
 
 ### ✏️ Characters in a Regex Story
 
-| Syntax | Description               | Matches                                                                                         | Example String | Example Expression | Example Match |
-| ------ | ------------------------- | ----------------------------------------------------------------------------------------------- | -------------- | ------------------ | ------------- |
-| `.`    | _any_ char                | Literally any char _(except line break)_                                                        | `a-c1-3`       | `a.c`              | `a-c`         |
-| `\w`   | _word_ char               | ASCII char _(Or Unicode char in Python & C#)_                                                   | `a-c1-3`       | `\w-\w`            | `a-c`         |
-| `\d`   | _digit_ char              | Digit 0-9 _(Or Unicode digit in Python & C#)_                                                   | `a-c1-3`       | `\d-\d`            | `1-3`         |
-| `\s`   | _whitespace_ char         | Space, tab, vertical tab, newline, carriage return _(Or Unicode seperator in Python, C#, & JS)_ | `a b`          | `a\sb`             | `a b`         |
-| `\W`   | **NOT** _word_ char       | Anything `\w` does not match                                                                    | `a-c1-3`       | `\W-\W`            | `1-3`         |
-| `\D`   | **NOT** _digit_ char      | Anything `\d` does not match                                                                    | `a-c1-3`       | `\D-\D`            | `a-c`         |
-| `\S`   | **NOT** _whitespace_ char | Anything `\s` does not match                                                                    | `a-c1-3`       | `\S-\S`            | `a-c`         |
+| Syntax | Character            | Matches                                                                                         | Example String | Example Expression | Example Match |
+| ------ | -------------------- | ----------------------------------------------------------------------------------------------- | -------------- | ------------------ | ------------- |
+| `.`    | _any_                | Literally any char _(except line break)_                                                        | `a-c1-3`       | `a.c`              | `a-c`         |
+| `\w`   | _word_               | ASCII char _(Or Unicode char in Python & C#)_                                                   | `a-c1-3`       | `\w-\w`            | `a-c`         |
+| `\d`   | _digit_              | Digit 0-9 _(Or Unicode digit in Python & C#)_                                                   | `a-c1-3`       | `\d-\d`            | `1-3`         |
+| `\s`   | _whitespace_         | Space, tab, vertical tab, newline, carriage return _(Or Unicode seperator in Python, C#, & JS)_ | `a b`          | `a\sb`             | `a b`         |
+| `\W`   | **NOT** _word_       | Anything `\w` does not match                                                                    | `a-c1-3`       | `\W-\W`            | `1-3`         |
+| `\D`   | **NOT** _digit_      | Anything `\d` does not match                                                                    | `a-c1-3`       | `\D-\D`            | `a-c`         |
+| `\S`   | **NOT** _whitespace_ | Anything `\s` does not match                                                                    | `a-c1-3`       | `\S-\S`            | `a-c`         |
 
 ### 🖋️ Special Characters
 
-| Syntax | Description   | Matches                                                                                             | Example String | Example Expression | Example Match |
-| ------ | ------------- | --------------------------------------------------------------------------------------------------- | -------------- | ------------------ | ------------- |
-| `\`    | _escape_ char | When placed before special chars, matches them. This includes the following chars: `[{()}].*+?$^/\` | `)$[]*{`       | `\[\]`             | `[]`          |
+| Syntax | Special Character | Matches                                                                                             | Example String | Example Expression | Example Match |
+| ------ | ----------------- | --------------------------------------------------------------------------------------------------- | -------------- | ------------------ | ------------- |
+| `\`    | _escape_          | When placed before special chars, matches them. This includes the following chars: `[{()}].*+?$^/\` | `)$[]*{`       | `\[\]`             | `[]`          |
 
 ### 🖌️ Quantifiers
 
-| Syntax   | Description        | Matches                                     | Example String | Example Expression | Example Match |
-| -------- | ------------------ | ------------------------------------------- | -------------- | ------------------ | ------------- |
-| `c?`     | _0-1_ quantifier   | 0 or 1 of the preceding expression          | `ccc`          | `c?`               | `c`           |
-| `c{X}`   | _X_ quantifier     | X of the preceding expression               | `ccc`          | `c{2}`             | `cc`          |
-| `c{X,}`  | _X+_ quantifier    | X or more of the preceding expression       | `ccc`          | `c{2,}`            | `ccc`         |
-| `c{X,Y}` | _range_ quantifier | Between X and Y of the preceding expression | `ccc`          | `c{1,3}`           | `ccc`         |
+| Syntax  | Quantifier | Matches                                     | Example String | Example Expression | Example Match |
+| ------- | ---------- | ------------------------------------------- | -------------- | ------------------ | ------------- |
+| `?`     | _optional_ | 0 or 1 of the preceding expression          | `ccc`          | `c?`               | `c`           |
+| `{X}`   | _X_        | X of the preceding expression               | `ccc`          | `c{2}`             | `cc`          |
+| `{X,}`  | _X+_       | X or more of the preceding expression       | `ccc`          | `c{2,}`            | `ccc`         |
+| `{X,Y}` | _range_    | Between X and Y of the preceding expression | `ccc`          | `c{1,3}`           | `ccc`         |
 
-Beyond standard quantifiers, there are a few additional types: _greedy_, _lazy_, and _possessive_.
+Beyond standard quantifiers, there are a few additional modifiers: _greedy_, _lazy_, and _possessive_.
 
-| Syntax | Description                | Matches                                                          | Example String | Example Expression | Example Match |
-| ------ | -------------------------- | ---------------------------------------------------------------- | -------------- | ------------------ | ------------- |
-| `c*`   | _0+ greedy_ quantifier     | as many chars as possible                                        | `abccc`        | `c*`               | `ccc`         |
-| `c+`   | _1+ greedy_ quantifier     | 1 or more of the preceding expression, as many chars as possible | `ccc`          | `c+`               | `ccc`         |
-| `c*?`  | _0+ lazy_ quantifier       | as few chars as possible                                         | `abccc`        | `c*?`              | `c`           |
-| `c+?`  | _1+ lazy_ quantifier       | as few chars as possible                                         | `abccc`        | `c+?`              | `c`           |
-| `c*+`  | _0+ possessive_ quantifier | as many chars as possible without backtracking                   | `abccc`        | `c*+`              | `ccc`         |
-| `c++`  | _1+ possessive_ quantifier | as many chars as possible without backtracking                   | `abccc`        | `c++`              | `ccc`         |
+| Syntax | Quantifier      | Matches                                                                                      | Example String | Example Expression | Example Match |
+| ------ | --------------- | -------------------------------------------------------------------------------------------- | -------------- | ------------------ | ------------- |
+| `*`    | _0+ greedy_     | 0 or more of the preceding expression, using as many chars as possible                       | `abccc`        | `c*`               | `ccc`         |
+| `+`    | _1+ greedy_     | 1 or more of the preceding expression, using as many chars as possible                       | `abccc`        | `c+`               | `ccc`         |
+| `*?`   | _0+ lazy_       | 0 or more of the preceding expression, using as few chars as possible                        | `abccc`        | `c*?`              | `c`           |
+| `+?`   | _1+ lazy_       | 1 or more of the preceding expression, using as few chars as possible                        | `abccc`        | `c+?`              | `c`           |
+| `*+`   | _0+ possessive_ | 0 or more of the preceding expression, using as many chars as possible, without backtracking | `abccc`        | `c*+`              | `ccc`         |
+| `++`   | _1+ possessive_ | 1 or more of the preceding expression, using as many chars as possible, without backtracking | `abccc`        | `c++`              | `ccc`         |
+
+Put simply, greedy quantifiers match as much as possible, lazy as little as possible, and possessive as much as possible without backtracking.
+
+What this means in practice is that possessive quantifiers will always return either the same match as greedy quantifiers, or if backtracking is required they will return no match. Therefore, posessive quantifiers should be used when you know backtracking is _not_ necessary, allowing increased performance.
 
 ### 🖊️ Anchors
 
-| Syntax   | Description            | Matches                                     | Example Expression | Example Match |
-| -------- | ---------------------- | ------------------------------------------- | ------------------ | ------------- |
-| `^c`     | _start_ anchor         | start of string                             | `c?`               | `c`           |
-| `c$`     | _end_ anchor           | end of string                               | `c+`               | `c`           |
-| `c{X}`   | _X_ quantifier         | X of the preceding expression               | `c{2}`             | `cc`          |
-| `c{X,}`  | _X-or-more_ quantifier | X or more of the preceding expression       | `c{2,}`            | `ccc`         |
-| `c{X,Y}` | _range_ quantifier     | Between X and Y of the preceding expression | `c{1,3}`           | `ccc`         |
+| Syntax   | Anchor      | Matches                                     | Example Expression | Example Match |
+| -------- | ----------- | ------------------------------------------- | ------------------ | ------------- |
+| `^c`     | _start_     | start of string                             | `c?`               | `c`           |
+| `c$`     | _end_       | end of string                               | `c+`               | `c`           |
+| `c{X}`   | _X_         | X of the preceding expression               | `c{2}`             | `cc`          |
+| `c{X,}`  | _X-or-more_ | X or more of the preceding expression       | `c{2,}`            | `ccc`         |
+| `c{X,Y}` | _range_     | Between X and Y of the preceding expression | `c{1,3}`           | `ccc`         |
 
 <!-- ### 🖍️ The Nitty Gitty - Examine History & State
 
