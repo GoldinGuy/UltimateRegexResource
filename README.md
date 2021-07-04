@@ -79,6 +79,19 @@ Regex includes several flags that are appended to the end of the expression to c
 | ------ | ----------------- | --------------------------------------------------------------------------------------------------- | -------------- | ------------------ | ------------- |
 | `\`    | _escape_          | When placed before special chars, matches them. This includes the following chars: `[{()}].*+?$^/\` | `)$[]*{`       | `\[\]`             | `[]`          |
 
+### 🖌️ Ranges
+
+| Syntax     | Special Character     | Matches                                     | Example String     | Example Expression | Example Match   |
+| ---------- | --------------------- | ------------------------------------------- | ------------------ | ------------------ | --------------- |
+| `[pog]`    | _word list_           | Either `p`, `o`, or `g`                     | `awesomePOSSUM123` | `[awesum]+`        | `awes`          |
+| `[^pog]`   | **NOT** _word list_   | Any char except `p`, `o`, or `g`            | `awesomePOSSUM123` | `[^awesum]+`       | `o`             |
+| `[a-z]`    | _word range_          | Any char between `a` and `z`, inclusive     | `awesomePOSSUM123` | `[a-z]+`           | `awesome`       |
+| `[^a-z]`   | **NOT** _word range_  | Any char not between `a` and `z`, inclusive | `awesomePOSSUM123` | `[^a-z]+`          | `123`           |
+| `[0-9]`    | _digit range_         | Any char between `0` and `9`, inclusive     | `awesomePOSSUM123` | `[0-9]+`           | `123`           |
+| `[^0-9]`   | **NOT** _digit range_ | Any char not between `0` and `9`, inclusive | `awesomePOSSUM123` | `[^0-9]+`          | `awesomePOSSUM` |
+| `[a-zA-Z]` | _word range_          | Any char not between `a` and `z`, inclusive | `awesomePOSSUM123` | `[a-zA-Z]+`        | `awesomePOSSUM` |
+| `[a-zA-Z]` | _word range_          | Any char not between `a` and `z`, inclusive | `awesomePOSSUM123` | `[a-zA-Z]+`        | `awesomePOSSUM` |
+
 ### 🖌️ Quantifiers
 
 | Syntax  | Quantifier | Matches                                     | Example String | Example Expression | Example Match |
