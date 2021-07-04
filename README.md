@@ -161,6 +161,7 @@ There are additional anchors available that are unaffected by multiline mode [m]
 - [SitePoint Learn Regex](https://www.sitepoint.com/learn-regex/), a great tutorial of the fundamental concepts
 - [Regex Basics](https://livinglifetechway.com/regex-the-basics/?utm_source=quora&utm_medium=referral&utm_campaign=awareness), as stated, with no deep knowledge required
 - [@ziishaned's Learn Regex](https://github.com/ziishaned/learn-regex), a repo that contains more info on Regex to learn it "the easy way"
+- [RegexHub](https://projects.lukehaas.me/regexhub/), a collection of commonly used Regex
 - ["Greedy" vs "Lazy"](https://stackoverflow.com/questions/3075130/what-is-the-difference-between-and-regular-expressions/3075532#3075532), a SO post that acts as a deep dive into their differences
 - [Difference between [] and () in Regex](https://stackoverflow.com/questions/9801630/what-is-the-difference-between-square-brackets-and-parentheses-in-a-regex), a SO post that hopefully helps
 - [MIT Regex Printable PDF Cheatsheet](https://web.mit.edu/hackl/www/lab/turkshop/slides/regex-cheatsheet.pdf), for those who need the physical copy
