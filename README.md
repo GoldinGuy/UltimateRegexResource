@@ -119,11 +119,14 @@ What this means in practice is that possessive quantifiers will always return ei
 
 ### Sequences & Groups
 
-| Syntax | Anchor          | Matches                                             | Example String       | Example Expression | Example Match |
-| ------ | --------------- | --------------------------------------------------- | -------------------- | ------------------ | ------------- |
-| `\|`   | _alternate_     | Either the preceding or following expression        | `she sells seasells` | `^\w+`             | `she`         |
-| `$`    | _end_           | End of string                                       | `she sells seasells` | `\w+$`             | `seashells`   |
-| `\b`   | _word boundary_ | Between a character matched and not matched by `\w` | `she sells seasells` | `s\b`              | `s`           |
+| Syntax     | Group       | Matches                                                         | Example String     | Example Expression      | Example Match      |
+| ---------- | ----------- | --------------------------------------------------------------- | ------------------ | ----------------------- | ------------------ |
+| `\|`       | _alternate_ | Either the preceding or following expression                    | `truly rural`      | `truly\|rural`          | `truly`            |
+| `(...)`    | _isolate_   | Everything enclosed; treats as separate capture group           | `truly rural`      | `truly (rural)`         | `truly`, `rural`   |
+| `(?:...)`  | _include_   | Everything enclosed; enables using quantifiers on part of regex | `truly ruralrural` | `truly (?:rural)+`      | `truly ruralrural` |
+| `(?\|...)` | _combine_   | Everything enclosed; treats all matches as same group           | `truly rural`      | `(?\|(rural)\|(truly))` | `truly`            |
+| `(?>...)`  | _atomic_    | Longest possible string without backtracking                    | `truly rural` | `(?>rur)`      | ` rur` |
+| `(?#...)`  | _comment_   | Everything enclosed; treats as comment and ignores              | `truly #rural`     | `truly (?#rural)`       | `truly`            |
 
 ### 🖊️ Anchors
 
