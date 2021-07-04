@@ -10,19 +10,17 @@
 
 Regex, or [regular expressions](https://en.wikipedia.org/wiki/Regular_expression), are patterns used to match strings. Regex is commonly used for searching/filtering strings for information, input validation, and web scraping. "Real world" examples include everything from validating email addresses to formatting class names in a grades app.
 
-Regex is incredibly powerful, but it's also often intimidating to learn and difficult to remember.
+Regex is incredibly powerful, but due to its seemingly unintelligible nature it's also often intimidating to learn and difficult to remember.
 
 ![image](https://user-images.githubusercontent.com/47064842/124194070-ee6c7680-da95-11eb-8f9a-0a2d3f7c4f33.png)
 
 For that reason, I've compiled a selection of the most helpful and commonly used regex syntax and some regex resources for your use below!
 
-#### Notes
-
 <!-- The [Docs](https://github.com/GoldinGuy/UltimateRegexResource/tree/main/docs) folder of this repo contains a simple profile/resume static site built on HTML5 and [TailwindCSS](https://v1.tailwindcss.com/) to help learn about [Github pages](https://pages.github.com/). You can clone the repository and test it out yourself, or visit [this link](https://goldinguy.github.io/UltimateRegexResource/) to see a live demo. For more info look at the [README](https://github.com/GoldinGuy/UltimateRegexResource/blob/main/docs/README.md) for the `/docs` directory. -->
 
-This repo contains a powerpoint presentation that can be viewed online [here](https://docs.google.com/presentation/d/1cTKU9GCAiubAG2wcFk9VdNwo5mn0ulzB7bJz9GICAWY/edit?usp=sharing).
+- This repo contains a powerpoint presentation that can be viewed online [here](https://docs.google.com/presentation/d/1cTKU9GCAiubAG2wcFk9VdNwo5mn0ulzB7bJz9GICAWY/edit?usp=sharing).
 
-Anywhere used below, `char` is shorthand for `character` (letter, digit or symbol), and `exp` is shorthand for a `regular expression`.
+- Anywhere used below, `char` is shorthand for `character` (letter, digit or symbol), and `exp` is shorthand for a `regular expression`.
 
 ## 📄 Table of Contents
 
@@ -39,7 +37,7 @@ TBD
 - [Git Resources](#-more-git-resources)
 - [Contributing](#contributing) -->
 
-### ✒️ Basics of Regex
+### ✒️ "Balderdash" Basics (of Regex)
 
 - Regular expressions start and end with "slash" characters `/`.
 - Patterns return the first [case-sensitive](https://en.wikipedia.org/wiki/Case_sensitivity) match they find by default.
@@ -48,7 +46,7 @@ Therefore: given the sample string `I scream, you scream, we all scream for ice 
 
 This behavior can be modified with [flags](#-flags).
 
-### 🖋️ Flags
+### 🖋️ "Flapdoodle" Flags
 
 | Syntax | Flag          | Behavior                                                       | Example  |
 | ------ | ------------- | -------------------------------------------------------------- | -------- |
@@ -62,7 +60,7 @@ This behavior can be modified with [flags](#-flags).
 
 Regex includes several flags that are appended to the end of the expression to change behavior. Using the string `I scream, you scream, we all SCREAM for ice cream`, the updated regex `/scream/gi` will now return `scream scream SCREAM`.
 
-### ✏️ Characters in a Regex Story
+### ✏️ "Gibberish" Characters
 
 | Syntax | Character            | Matches                                                                                         | Example String | Example Expression | Example Match |
 | ------ | -------------------- | ----------------------------------------------------------------------------------------------- | -------------- | ------------------ | ------------- |
@@ -74,13 +72,20 @@ Regex includes several flags that are appended to the end of the expression to c
 | `\D`   | **NOT** _digit_      | Anything `\d` does not match                                                                    | `a-c1-3`       | `\D-\D`            | `a-c`         |
 | `\S`   | **NOT** _whitespace_ | Anything `\s` does not match                                                                    | `a-c1-3`       | `\S-\S`            | `a-c`         |
 
-### 🖋️ Special Characters
+### 🖋️ "Bafflegab" Special Characters
 
 | Syntax | Special Character | Matches                                             | Example String | Example Expression | Example Match |
 | ------ | ----------------- | --------------------------------------------------- | -------------- | ------------------ | ------------- |
 | `\`    | _escape_          | The following when preceding them: `[{()}].*+?$^/\` | `)$[]*{`       | `\[\]`             | `[]`          |
 
-### 🖌️ Ranges
+| Syntax | Substitute        | Behavior                      |
+| ------ | ----------------- | ----------------------------- |
+| `\n`   | _newline_         | Insert a newline char         |
+| `\t`   | _tab_             | Insert a tab char             |
+| `\r`   | _carriage return_ | Insert a carriage return char |
+| `\f`   | _form-feed_       | Insert a form feed char       |
+
+### 🖌️ "Rigmarole" Ranges
 
 | Syntax     | Range                 | Matches                                     | Example String     | Example Expression | Example Match   |
 | ---------- | --------------------- | ------------------------------------------- | ------------------ | ------------------ | --------------- |
@@ -93,7 +98,7 @@ Regex includes several flags that are appended to the end of the expression to c
 | `[a-zA-Z]` | _word range_          | Any char not between `a` and `z`, inclusive | `awesomePOSSUM123` | `[a-zA-Z]+`        | `awesomePOSSUM` |
 | `[a-zA-Z]` | _word range_          | Any char not between `a` and `z`, inclusive | `awesomePOSSUM123` | `[a-zA-Z]+`        | `awesomePOSSUM` |
 
-### 🖌️ Quantifiers
+### 🖌️ "Jargon" Quantifiers
 
 | Syntax  | Quantifier | Matches                                     | Example String | Example Expression | Example Match |
 | ------- | ---------- | ------------------------------------------- | -------------- | ------------------ | ------------- |
@@ -117,7 +122,7 @@ Put simply, greedy quantifiers match as much as possible, lazy as little as poss
 
 What this means in practice is that possessive quantifiers will always return either the same match as greedy quantifiers, or if backtracking is required they will return no match. Therefore, posessive quantifiers should be used when you know backtracking is _not_ necessary, allowing increased performance.
 
-### Sequences & Groups
+### 🖊️ Gobbledygook Groups
 
 | Syntax     | Group       | Matches                                                         | Example String     | Example Expression      | Example Match      |
 | ---------- | ----------- | --------------------------------------------------------------- | ------------------ | ----------------------- | ------------------ |
@@ -125,10 +130,10 @@ What this means in practice is that possessive quantifiers will always return ei
 | `(...)`    | _isolate_   | Everything enclosed; treats as separate capture group           | `truly rural`      | `truly (rural)`         | `truly`, `rural`   |
 | `(?:...)`  | _include_   | Everything enclosed; enables using quantifiers on part of regex | `truly ruralrural` | `truly (?:rural)+`      | `truly ruralrural` |
 | `(?\|...)` | _combine_   | Everything enclosed; treats all matches as same group           | `truly rural`      | `(?\|(rural)\|(truly))` | `truly`            |
-| `(?>...)`  | _atomic_    | Longest possible string without backtracking                    | `truly rural` | `(?>rur)`      | ` rur` |
+| `(?>...)`  | _atomic_    | Longest possible string without backtracking                    | `truly rural`      | `(?>rur)`               | ` rur`             |
 | `(?#...)`  | _comment_   | Everything enclosed; treats as comment and ignores              | `truly #rural`     | `truly (?#rural)`       | `truly`            |
 
-### 🖊️ Anchors
+### 🖍️ "Malarkey" Anchors
 
 | Syntax | Anchor                  | Matches                                             | Example String       | Example Expression | Example Match |
 | ------ | ----------------------- | --------------------------------------------------- | -------------------- | ------------------ | ------------- |
@@ -145,28 +150,8 @@ There are additional anchors available that are unaffected by multiline mode [m]
 | `\Z`   | _multi-end_    | End of string                                      | `she sees cheese` | `\w+\Z`            | `cheese`      |
 | `\Z`   | _absolute end_ | Absolute end of string, ignoring trailing newlines | `she sees cheese` | `\w+\Z`            | `cheese`      |
 
-### Substitutes
-
-| Syntax | Substitute        | Behavior                      |
-| ------ | ----------------- | ----------------------------- |
-| `\n`   | _newline_         | Insert a newline char         |
-| `\t`   | _tab_             | Insert a tab char             |
-| `\r`   | _carriage return_ | Insert a carriage return char |
-| `\f`   | _form-feed_       | Insert a form feed char       |
-
-<!-- ### 🖍️ The Nitty Gitty - Examine History & State
-
-| Command | Description |
-| ------- | ----------- |
-| `git status` | See details about the current branch |
-| `git show` | Shows changes in committed files |
-| `git log` | View changes in commit history |
-| `git log --summary` | View changes (detailed) |
-| `git log --oneline` | View changes (briefly) |
-| `git diff <source branch> <target branch>` | Preview changes before merging | -->
-
 <!--
-### ✒️ Regex Resources
+### ✒️ "Mumbo Jumbo" Regex Resources
 
 - [Git Docs](https://git-scm.com/doc), for those who want to dive deep into the documentation
 - [Git Handbook](https://guides.github.com/introduction/git-handbook/), for those who want a quick overview
@@ -185,7 +170,7 @@ There are additional anchors available that are unaffected by multiline mode [m]
 - [Github Student Developer Pack](https://education.github.com/pack), seriously, if you're a student you should have this
 - [Intro to Git Rebase](https://dev.to/maxwell_dev/the-git-rebase-introduction-i-wish-id-had), a great explanation of a powerful command -->
 
-### Contributing
+### "Codswallop" Contributing
 
 1. Fork UltimateRegexResource [here](https://github.com/GoldinGuy/UltimateRegexResource/fork)
 2. Create a branch with your improvements (`git checkout -b improvement/fooBar`)
