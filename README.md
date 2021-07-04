@@ -105,13 +105,20 @@ What this means in practice is that possessive quantifiers will always return ei
 
 ### 🖊️ Anchors
 
-| Syntax   | Anchor      | Matches                                     | Example Expression | Example Match |
-| -------- | ----------- | ------------------------------------------- | ------------------ | ------------- |
-| `^c`     | _start_     | start of string                             | `c?`               | `c`           |
-| `c$`     | _end_       | end of string                               | `c+`               | `c`           |
-| `c{X}`   | _X_         | X of the preceding expression               | `c{2}`             | `cc`          |
-| `c{X,}`  | _X-or-more_ | X or more of the preceding expression       | `c{2,}`            | `ccc`         |
-| `c{X,Y}` | _range_     | Between X and Y of the preceding expression | `c{1,3}`           | `ccc`         |
+| Syntax | Anchor                  | Matches                                             | Example String       | Example Expression | Example Match |
+| ------ | ----------------------- | --------------------------------------------------- | -------------------- | ------------------ | ------------- |
+| `^`    | _start_                 | Start of string                                     | `she sells seasells` | `^\w+`             | `she`         |
+| `$`    | _end_                   | End of string                                       | `she sells seasells` | `\w+$`             | `seashells`   |
+| `\b`   | _word boundary_         | Between a character matched and not matched by `\w` | `she sells seasells` | `s\b`              | `s`           |
+| `\B`   | **NOT** _word boundary_ | Between two characters matched by `\w`              | `she sells seasells` | `\w+$`             | `seashells`   |
+
+There are additional anchors available that are unaffected by multiline mode `m`:
+
+| Syntax | Anchor         | Matches                                            | Example String    | Example Expression | Example Match |
+| ------ | -------------- | -------------------------------------------------- | ----------------- | ------------------ | ------------- |
+| `\A`   | _multi-start_  | Start of string                                    | `she sees cheese` | `\A\w+`            | `she`         |
+| `\Z`   | _multi-end_    | End of string                                      | `she sees cheese` | `\w+\Z`            | `cheese`      |
+| `\Z`   | _absolute end_ | Absolute end of string, ignoring trailing newlines | `she sees cheese` | `\w+\Z`            | `cheese`      |
 
 <!-- ### 🖍️ The Nitty Gitty - Examine History & State
 
