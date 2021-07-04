@@ -58,8 +58,9 @@ This behavior can be modified with [flags](#-flags).
 | `u`    | _unicode_     | Expressions are treated as Unicode (UTF-16)                    | `/foo/u` |
 | `s`    | _singleline_  | Treats entire string as one line (allows `.` to match newline) | `/foo/s` |
 | `m`    | _multiline_   | Start & end anchors now trigger on each line                   | `/foo/m` |
+| `n`    | _nth match_   | Matches text returned by _nth_ group                           | `/foo/m` |
 
-Regex includes several flags that are appended to the end of the expression to change behavior. Using the same string `I scream, you scream, we all SCREAM for ice cream`, the updated regex `/scream/gi` will now return `scream scream SCREAM`.
+Regex includes several flags that are appended to the end of the expression to change behavior. Using the string `I scream, you scream, we all SCREAM for ice cream`, the updated regex `/scream/gi` will now return `scream scream SCREAM`.
 
 ### ✏️ Characters in a Regex Story
 
@@ -75,13 +76,13 @@ Regex includes several flags that are appended to the end of the expression to c
 
 ### 🖋️ Special Characters
 
-| Syntax | Special Character | Matches                                                                                             | Example String | Example Expression | Example Match |
-| ------ | ----------------- | --------------------------------------------------------------------------------------------------- | -------------- | ------------------ | ------------- |
-| `\`    | _escape_          | When placed before special chars, matches them. This includes the following chars: `[{()}].*+?$^/\` | `)$[]*{`       | `\[\]`             | `[]`          |
+| Syntax | Special Character | Matches                                             | Example String | Example Expression | Example Match |
+| ------ | ----------------- | --------------------------------------------------- | -------------- | ------------------ | ------------- |
+| `\`    | _escape_          | The following when preceding them: `[{()}].*+?$^/\` | `)$[]*{`       | `\[\]`             | `[]`          |
 
 ### 🖌️ Ranges
 
-| Syntax     | Special Character     | Matches                                     | Example String     | Example Expression | Example Match   |
+| Syntax     | Range                 | Matches                                     | Example String     | Example Expression | Example Match   |
 | ---------- | --------------------- | ------------------------------------------- | ------------------ | ------------------ | --------------- |
 | `[pog]`    | _word list_           | Either `p`, `o`, or `g`                     | `awesomePOSSUM123` | `[awesum]+`        | `awes`          |
 | `[^pog]`   | **NOT** _word list_   | Any char except `p`, `o`, or `g`            | `awesomePOSSUM123` | `[^awesum]+`       | `o`             |
@@ -116,6 +117,14 @@ Put simply, greedy quantifiers match as much as possible, lazy as little as poss
 
 What this means in practice is that possessive quantifiers will always return either the same match as greedy quantifiers, or if backtracking is required they will return no match. Therefore, posessive quantifiers should be used when you know backtracking is _not_ necessary, allowing increased performance.
 
+### Sequences & Groups
+
+| Syntax | Anchor          | Matches                                             | Example String       | Example Expression | Example Match |
+| ------ | --------------- | --------------------------------------------------- | -------------------- | ------------------ | ------------- |
+| `\|`   | _alternate_     | Either the preceding or following expression        | `she sells seasells` | `^\w+`             | `she`         |
+| `$`    | _end_           | End of string                                       | `she sells seasells` | `\w+$`             | `seashells`   |
+| `\b`   | _word boundary_ | Between a character matched and not matched by `\w` | `she sells seasells` | `s\b`              | `s`           |
+
 ### 🖊️ Anchors
 
 | Syntax | Anchor                  | Matches                                             | Example String       | Example Expression | Example Match |
@@ -132,6 +141,15 @@ There are additional anchors available that are unaffected by multiline mode [m]
 | `\A`   | _multi-start_  | Start of string                                    | `she sees cheese` | `\A\w+`            | `she`         |
 | `\Z`   | _multi-end_    | End of string                                      | `she sees cheese` | `\w+\Z`            | `cheese`      |
 | `\Z`   | _absolute end_ | Absolute end of string, ignoring trailing newlines | `she sees cheese` | `\w+\Z`            | `cheese`      |
+
+### Substitutes
+
+| Syntax | Substitute        | Behavior                      |
+| ------ | ----------------- | ----------------------------- |
+| `\n`   | _newline_         | Insert a newline char         |
+| `\t`   | _tab_             | Insert a tab char             |
+| `\r`   | _carriage return_ | Insert a carriage return char |
+| `\f`   | _form-feed_       | Insert a form feed char       |
 
 <!-- ### 🖍️ The Nitty Gitty - Examine History & State
 
