@@ -45,7 +45,7 @@ Therefore: given the sample string `I scream, you scream, we all scream for ice 
 
 This behavior can be modified with [flags](#-flags).
 
-### 🖋️ "Flapdoodle" Flags
+### 🚩 "Flapdoodle" Flags
 
 | Syntax | Flag          | Behavior                                                       | Example  |
 | ------ | ------------- | -------------------------------------------------------------- | -------- |
@@ -97,7 +97,7 @@ Regex includes several flags that are appended to the end of the expression to c
 | `[a-zA-Z]` | _word range_          | Any char not between `a` and `z`, inclusive | `awesomePOSSUM123` | `[a-zA-Z]+`        | `awesomePOSSUM` |
 | `[a-zA-Z]` | _word range_          | Any char not between `a` and `z`, inclusive | `awesomePOSSUM123` | `[a-zA-Z]+`        | `awesomePOSSUM` |
 
-### 🖌️ "Jargon" Quantifiers
+### 🖊️ "Jargon" Quantifiers
 
 | Syntax  | Quantifier | Matches                                     | Example String | Example Expression | Example Match |
 | ------- | ---------- | ------------------------------------------- | -------------- | ------------------ | ------------- |
@@ -121,7 +121,7 @@ Put simply, greedy quantifiers match as much as possible, lazy as little as poss
 
 What this means in practice is that possessive quantifiers will always return either the same match as greedy quantifiers, or if backtracking is required they will return no match. Therefore, posessive quantifiers should be used when you know backtracking is _not_ necessary, allowing increased performance.
 
-### 🖊️ "Gobbledygook" Groups
+### 🖍️ "Gobbledygook" Groups
 
 | Syntax     | Group       | Matches                                                         | Example String     | Example Expression      | Example Match      |
 | ---------- | ----------- | --------------------------------------------------------------- | ------------------ | ----------------------- | ------------------ |
@@ -132,7 +132,7 @@ What this means in practice is that possessive quantifiers will always return ei
 | `(?>...)`  | _atomic_    | Longest possible string without backtracking                    | `truly rural`      | `(?>rur)`               | ` rur`             |
 | `(?#...)`  | _comment_   | Everything enclosed; treats as comment and ignores              | `truly #rural`     | `truly (?#rural)`       | `truly`            |
 
-### 🖍️ "Malarkey" Anchors
+### ⚓ "Malarkey" Anchors
 
 | Syntax | Anchor                  | Matches                                             | Example String       | Example Expression | Example Match |
 | ------ | ----------------------- | --------------------------------------------------- | -------------------- | ------------------ | ------------- |
@@ -149,27 +149,27 @@ There are additional anchors available that are unaffected by multiline mode [m]
 | `\Z`   | _multi-end_    | End of string                                      | `she sees cheese` | `\w+\Z`            | `cheese`      |
 | `\Z`   | _absolute end_ | Absolute end of string, ignoring trailing newlines | `she sees cheese` | `\w+\Z`            | `cheese`      |
 
-<!--
-### ✒️ "Mumbo Jumbo" Regex Resources
+### 📌 "Mumbo Jumbo" Regex Resources
 
-- [Git Docs](https://git-scm.com/doc), for those who want to dive deep into the documentation
-- [Git Handbook](https://guides.github.com/introduction/git-handbook/), for those who want a quick overview
-- [Visual Git CheatSheet](https://ndpsoftware.com/git-cheatsheet.html), for those who are visual learners
-- [Official Printable PDF CheatSheet](https://training.github.com/downloads/github-git-cheat-sheet.pdf), for those who need the physcial copy
-- [Visualize Git Under the Hood](https://git-school.github.io/visualizing-git/), allows you to explore exactly how commands affect repo structure
-- [Stanford GitMagic](http://www-cs-students.stanford.edu/~blynn/gitmagic/), a plain but detailed quide to git
-- [GitReady](http://gitready.com/), lets you learn git one commit at a time
-- [Git From the Bottom Up](https://jwiegley.github.io/git-from-the-bottom-up/), gives you a better understanding of the powerful system
-- [Git, the Simple Guide](https://rogerdudler.github.io/git-guide/), as stated, with no deep knowledge required
-- [Git Explained (Not just commands)](https://towardsdatascience.com/git-help-all-2d0bb0c31483), a brief guide including more than commands
-- [Git-It](https://github.com/jlord/git-it-electron#what-to-install), an app that teaches you git via challenges in the terminal
-- [Interactive Way to Learn Git Branching](https://learngitbranching.js.org/), for an enjoyable way to tackle an important concept
-- [Git Markdown Emoji](https://github.com/ikatyang/emoji-cheat-sheet), to spice up your Git repos
-- [Article on Writing Good Commit Messages](https://chris.beams.io/posts/git-commit/), which pretty much everyone could stand to improve ;)
-- [Github Student Developer Pack](https://education.github.com/pack), seriously, if you're a student you should have this
-- [Intro to Git Rebase](https://dev.to/maxwell_dev/the-git-rebase-introduction-i-wish-id-had), a great explanation of a powerful command -->
+- [Regex101](https://regex101.com/), an incredible testing utility for all flavors of Regex
+- [RegexOne](https://regexone.com/), a great way to learn Regex through brief lessons
+- [Regexr](https://regexr.com/), another way to test your expressions
+- [Rubular](https://rubular.com/), a Ruby-based regex tester w/ quick reference
+- [Regex.Info](https://www.regular-expressions.info/), a plain but detailed guide to regex
+- [Redoku](https://padolsey.github.io/redoku/), a great gamified way to practice Regex
+- [RexEgg](http://www.rexegg.com/), the self proclaimed "world's most tyrannisaurical regex tutorial"
+- [CodeAcademy Regex Tutorial](https://www.codecademy.com/learn/introduction-to-regular-expressions), a 1-hour course w/ certification
+- [SitePoint Learn Regex](https://www.sitepoint.com/learn-regex/), a great tutorial of the fundamental concepts
+- [Regex Basics](https://livinglifetechway.com/regex-the-basics/?utm_source=quora&utm_medium=referral&utm_campaign=awareness), as stated, with no deep knowledge required
+- [@ziishaned's Learn Regex](https://github.com/ziishaned/learn-regex), a repo that contains more info on Regex to learn it "the easy way"
+- ["Greedy" vs "Lazy"](https://stackoverflow.com/questions/3075130/what-is-the-difference-between-and-regular-expressions/3075532#3075532), a SO post that acts as a deep dive into their differences
+- [Difference between [] and () in Regex](https://stackoverflow.com/questions/9801630/what-is-the-difference-between-square-brackets-and-parentheses-in-a-regex), a SO post that hopefully helps
+- [MIT Regex Printable PDF Cheatsheet](https://web.mit.edu/hackl/www/lab/turkshop/slides/regex-cheatsheet.pdf), for those who need the physical copy
+- [Stanford Regex Printable PDF Cheatsheet](https://stanford.edu/~wpmarble/webscraping_tutorial/regex_cheatsheet.pdf), for those who prefer a pinker physical copy
+- [When/How Not To Use Regex](https://blog.codinghorror.com/regular-expressions-now-you-have-two-problems/), article by founder of SO that discusses what you'd expect from the title
+- [Awesome Regex Resources](https://github.com/Varunram/Awesome-Regex-Resources), a comprehensive list of Regex books, articles, and utilities far larger than this
 
-### "Codswallop" Contributing
+### 👥 "Codswallop" Contributing
 
 1. Fork UltimateRegexResource [here](https://github.com/GoldinGuy/UltimateRegexResource/fork)
 2. Create a branch with your improvements (`git checkout -b improvement/fooBar`)
