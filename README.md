@@ -25,16 +25,15 @@ For that reason, I've compiled a selection of the most helpful and commonly used
 ## 📄 Table of Contents
 
 - ["Balderdash" Basics (of Regex)](#%EF%B8%8F-balderdash-basics-of-regex)
-- ["Flapdoodle" Flags](#%EF%B8%8F-flapdoodle-flags)
+- ["Flapdoodle" Flags](#-flapdoodle-flags)
 - ["Gibberish" Characters](#%EF%B8%8F-gibberish-characters)
 - ["Bafflegab" Special Characters](#%EF%B8%8F-bafflegab-special-characters)
 - ["Rigmarole" Ranges](#%EF%B8%8F-rigmarole-ranges)
-- ["Rigmarole" Ranges](#%EF%B8%8F-rigmarole-ranges)
 - ["Jargon" Quantifiers](#%EF%B8%8F-jargon-quantifiers)
 - ["Gobbledygook" Groups](#%EF%B8%8F-gobbledygook-groups)
-- ["Malarkey" Anchors](%EF%B8%8F-malarkey-anchors)
-- [Regex Resources](#-more-regex-resources)
-- [Contributing](#contributing)
+- ["Malarkey" Anchors](#-malarkey-anchors)
+- [Regex Resources](#-mumbo-jumbo-regex-resources)
+- [Contributing](#-codswallop-contributing)
 
 ### ✒️ "Balderdash" Basics (of Regex)
 
