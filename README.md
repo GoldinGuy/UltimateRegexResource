@@ -44,22 +44,22 @@ TBD
 - Regular expressions start and end with "slash" characters `/`.
 - Patterns return the first [case-sensitive](https://en.wikipedia.org/wiki/Case_sensitivity) match they find by default.
 
-Therefore, given the sample string `red green blue BLUE blue`:
+Therefore: given the sample string `I scream, you scream, we all scream for ice cream`, `/scream/` matches the first instance of "scream."
 
-`/blue/` matches the first instance of "blue."
+This behavior can be modified with [flags](#-flags).
 
 ### 🖋️ Flags
 
-| Syntax | Flag          | Behavior                                                       |
-| ------ | ------------- | -------------------------------------------------------------- |
-| `g`    | _global_      | Returns additional matches                                     |
-| `i`    | _insensitive_ | Allows case-insensitive matches                                |
-| `x`    | _verbose_     | Ignore whitespace & allow comments                             |
-| `u`    | _unicode_     | Expressions are treated as Unicode (UTF-16)                    |
-| `s`    | _singleline_  | Treats entire string as one line (allows `.` to match newline) |
-| `m`    | _multiline_   | Start & end anchors now trigger on each line                   |
+| Syntax | Flag          | Behavior                                                       | Example  |
+| ------ | ------------- | -------------------------------------------------------------- | -------- |
+| `g`    | _global_      | Returns additional matches                                     | `/foo/g` |
+| `i`    | _insensitive_ | Allows case-insensitive matches                                | `/foo/i` |
+| `x`    | _verbose_     | Ignore whitespace & allow comments                             | `/foo/x` |
+| `u`    | _unicode_     | Expressions are treated as Unicode (UTF-16)                    | `/foo/u` |
+| `s`    | _singleline_  | Treats entire string as one line (allows `.` to match newline) | `/foo/s` |
+| `m`    | _multiline_   | Start & end anchors now trigger on each line                   | `/foo/m` |
 
-Regex includes several flags that are appended to the end of the expression to change behavior. Using the same string as before, the updated regex `/blue/gi` will now return `blue BLUE blue`.
+Regex includes several flags that are appended to the end of the expression to change behavior. Using the same string `I scream, you scream, we all SCREAM for ice cream`, the updated regex `/scream/gi` will now return `scream scream SCREAM`.
 
 ### ✏️ Characters in a Regex Story
 
@@ -112,7 +112,7 @@ What this means in practice is that possessive quantifiers will always return ei
 | `\b`   | _word boundary_         | Between a character matched and not matched by `\w` | `she sells seasells` | `s\b`              | `s`           |
 | `\B`   | **NOT** _word boundary_ | Between two characters matched by `\w`              | `she sells seasells` | `\w+$`             | `seashells`   |
 
-There are additional anchors available that are unaffected by multiline mode `m`:
+There are additional anchors available that are unaffected by multiline mode [m](#-flags).
 
 | Syntax | Anchor         | Matches                                            | Example String    | Example Expression | Example Match |
 | ------ | -------------- | -------------------------------------------------- | ----------------- | ------------------ | ------------- |
