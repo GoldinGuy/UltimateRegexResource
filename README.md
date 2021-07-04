@@ -24,18 +24,17 @@ For that reason, I've compiled a selection of the most helpful and commonly used
 
 ## 📄 Table of Contents
 
-TBD
-
-<!-- - [Installing Git](https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/set-up-git)
-- [Gitting Existing Projects](#-gitting-existing-projects)
-- [Gitting Started - Setting Up a New Repo](#-gitting-started---setting-up-a-new-repo)
-- [The Nitty Gitty - Examine History & State](#-the-nitty-gitty---examine-history--state)
-- [Branching Out - Grow, Mark & Tweak History](#-branching-out---grow-mark--tweak-history)
-- [Git Gud - Dealing With Merge Conflicts](#-git-gud---dealing-with-merge-conflicts)
-- [Git More - Pushing, Pulling, & Remote Origin](#-git-more---pushing-pulling--remote-origin)
-- [Gitting Complicated - The Danger Zone](#-gitting-complicated---the-danger-zone)
-- [Git Resources](#-more-git-resources)
-- [Contributing](#contributing) -->
+- ["Balderdash" Basics (of Regex)](#%EF%B8%8F-balderdash-basics-of-regex)
+- ["Flapdoodle" Flags](#%EF%B8%8F-flapdoodle-flags)
+- ["Gibberish" Characters](#%EF%B8%8F-gibberish-characters)
+- ["Bafflegab" Special Characters](#%EF%B8%8F-bafflegab-special-characters)
+- ["Rigmarole" Ranges](#%EF%B8%8F-rigmarole-ranges)
+- ["Rigmarole" Ranges](#%EF%B8%8F-rigmarole-ranges)
+- ["Jargon" Quantifiers](#%EF%B8%8F-jargon-quantifiers)
+- ["Gobbledygook" Groups](#%EF%B8%8F-gobbledygook-groups)
+- ["Malarkey" Anchors](%EF%B8%8F-malarkey-anchors)
+- [Regex Resources](#-more-regex-resources)
+- [Contributing](#contributing)
 
 ### ✒️ "Balderdash" Basics (of Regex)
 
@@ -122,7 +121,7 @@ Put simply, greedy quantifiers match as much as possible, lazy as little as poss
 
 What this means in practice is that possessive quantifiers will always return either the same match as greedy quantifiers, or if backtracking is required they will return no match. Therefore, posessive quantifiers should be used when you know backtracking is _not_ necessary, allowing increased performance.
 
-### 🖊️ Gobbledygook Groups
+### 🖊️ "Gobbledygook" Groups
 
 | Syntax     | Group       | Matches                                                         | Example String     | Example Expression      | Example Match      |
 | ---------- | ----------- | --------------------------------------------------------------- | ------------------ | ----------------------- | ------------------ |
