@@ -32,7 +32,7 @@ For that reason, I've compiled a selection of the most helpful and commonly used
 - ["Jargon" Quantifiers](#%EF%B8%8F-jargon-quantifiers)
 - ["Gobbledygook" Groups](#%EF%B8%8F-gobbledygook-groups)
 - ["Malarkey" Anchors](#-malarkey-anchors)
-- [Regex Resources](#-mumbo-jumbo-regex-resources)
+- ["Mumbo Jumbo" Regex Resources](#-mumbo-jumbo-regex-resources)
 - [Contributing](#-codswallop-contributing)
 
 ### ✒️ "Balderdash" Basics (of Regex)
