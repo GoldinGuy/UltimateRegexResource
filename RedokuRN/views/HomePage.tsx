@@ -5,7 +5,9 @@ import {
 	View,
 	TextInput,
 	ScrollView,
-	SafeAreaView
+	SafeAreaView,
+	Button,
+	TouchableHighlight
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import Board from "../components/Board";
@@ -37,7 +39,10 @@ const styles = StyleSheet.create({
 		color: "#fff",
 		fontWeight: "bold",
 		fontFamily: "Menlo"
-	}
+	},
+	 btnClickContain: {
+    borderRadius: 25
+  },
 });
 
 const HomePage = () => {
@@ -187,17 +192,33 @@ const HomePage = () => {
 				<StatusBar style="light" />
 
 				<View style={styles.navbar}>
-					<FontAwesomeIcon
-						icon={faUndoAlt}
-						size={32}
-						style={{ color: "#fff" }}
-					/>
+					<TouchableHighlight
+						style={styles.btnClickContain}
+						underlayColor='#DF7373'
+						onPress={() => {
+						createGame();
+					}}>
+						<FontAwesomeIcon
+							icon={faUndoAlt}
+							size={32}
+							style={{ color: "#fff" }}
+						/>
+					</TouchableHighlight>
+					
 					<Text style={styles.header}>REDOKU</Text>
+					<TouchableHighlight
+						style={styles.btnClickContain}
+						underlayColor='#DF7373'
+						onPress={() => {
+						// TODO: regex dict
+					}}>
 					<FontAwesomeIcon
 						icon={faBookmark}
 						size={32}
 						style={{ color: "#fff" }}
 					/>
+					</TouchableHighlight>
+				
 				</View>
 				<Board cExps={cExps} rExps={rExps} board={board} setC={setCorrect} />
 			</View>
