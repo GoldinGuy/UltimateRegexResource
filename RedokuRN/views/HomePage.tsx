@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import {
 	StyleSheet,
 	Text,
@@ -14,20 +14,25 @@ import Board from "../components/Board";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faBookmark, faUndo, faUndoAlt } from "@fortawesome/free-solid-svg-icons";
 import { arrToGrid, escapeChars } from "../utils/utils";
+import ConfettiCannon from "react-native-confetti-cannon";
+import { colors } from "../utils/globals";
+import { useRef } from "react";
+// import Dictionary from "../components/RegexDict";
+import RedukuWebView from "../components/WebView";
 
 const styles = StyleSheet.create({
 	safearea: {
 		flex: 1,
-		backgroundColor: "#DF7373"
+		backgroundColor: colors.red,
 	},
 	container: {
 		flex: 1,
 		alignItems: "center",
-		backgroundColor: "#faf8ef"
+		backgroundColor: colors.beige
 		// maxWidth: screen.width
 	},navbar:{
 		padding: 20,
-		backgroundColor: "#DF7373",
+		backgroundColor: colors.red,
 		width: "100%",
 		display: "flex",
 		flexDirection: "row",
@@ -36,7 +41,7 @@ const styles = StyleSheet.create({
 	header: {
 		fontSize: 26,
 		textAlign: "center",
-		color: "#fff",
+		color: colors.white,
 		fontWeight: "bold",
 		fontFamily: "Menlo"
 	},
@@ -49,7 +54,18 @@ const HomePage = () => {
  const [cExps, setCExps] = useState<string[]>([]);
  const [rExps, setRExps] = useState<string[]>([]);
  const [board, setBoard] = useState<string[][]>([]);
- const [ans, setAnswers] = useState<string[]>([]);
+	const [ans, setAnswers] = useState<string[]>([]);
+	const [won, setWon] = useState(true)
+
+	const winRef = useRef<ConfettiCannon>(null);
+	const dictRef = useRef<any>(null);
+
+	  const handleOpenDict = useCallback(() => {
+			if (dictRef.current) {
+				dictRef.current?.open();
+			}
+		}, []);
+
 
     const charSet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVXYZ".split(
 			""
@@ -132,7 +148,8 @@ const HomePage = () => {
 			return r;
 		};
 
-		const createGame = () => {
+	const createGame = () => {
+			setWon(false)
 			let r = 4,
 				c = 4;
 			let answers = Array(r * c + 1)
@@ -175,10 +192,11 @@ const HomePage = () => {
 		};
 
 		const setCorrect = (id: string) => {
-			let newAns = ans.splice(ans.indexOf(id), 1);
-			setAnswers(newAns);
-			if (newAns.length <= 0) {
-				console.log("you win");
+			ans.splice(ans.indexOf(id), 1);
+			setAnswers(ans);
+			if (ans.length <= 0) {
+				setWon(true);
+				winRef.current?.start();
 			}
 		};
 
@@ -194,34 +212,48 @@ const HomePage = () => {
 				<View style={styles.navbar}>
 					<TouchableHighlight
 						style={styles.btnClickContain}
-						underlayColor='#DF7373'
-						onPress={() => {
-						createGame();
-					}}>
+						underlayColor={colors.red}
+						onPress={createGame}
+					>
 						<FontAwesomeIcon
 							icon={faUndoAlt}
 							size={32}
-							style={{ color: "#fff" }}
+							style={{ color: colors.white }}
 						/>
 					</TouchableHighlight>
-					
 					<Text style={styles.header}>REDOKU</Text>
 					<TouchableHighlight
 						style={styles.btnClickContain}
-						underlayColor='#DF7373'
-						onPress={() => {
-						// TODO: regex dict
-					}}>
-					<FontAwesomeIcon
-						icon={faBookmark}
-						size={32}
-						style={{ color: "#fff" }}
-					/>
+						underlayColor={colors.red}
+						onPress={handleOpenDict}
+					>
+						<FontAwesomeIcon
+							icon={faBookmark}
+							size={32}
+							style={{ color: colors.white }}
+						/>
 					</TouchableHighlight>
-				
 				</View>
 				<Board cExps={cExps} rExps={rExps} board={board} setC={setCorrect} />
+				<ConfettiCannon
+					count={200}
+					autoStart={false}
+					origin={{ x: -10, y: 0 }}
+					colors={[colors.red, colors.blue]}
+					ref={winRef}
+				/>
 			</View>
+			{/* <Dictionary /> */}
+			<RedukuWebView ref={dictRef} />
+			{/* <ModalizeWebView
+				ref={dictRef}
+				handlePosition="inside"
+				webViewProps={{
+					source: {
+						uri: "https://facebook.github.io/react-native/"
+					}
+				}}
+			/> */}
 		</SafeAreaView>
 	);
 };

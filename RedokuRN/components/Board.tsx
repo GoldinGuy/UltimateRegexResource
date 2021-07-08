@@ -131,7 +131,7 @@ const Board = ({ cExps, rExps, board, setC }: {
 								>
 									{col.map((id, idx) => {
 										return (
-											<Square
+											<Tile
 												id={id}
 												setC={setC}
 												key={`ans${id + idx}`}
@@ -149,7 +149,7 @@ const Board = ({ cExps, rExps, board, setC }: {
 export default Board
 
 
-const Square = ({ id, setC }: { id: string, setC: Function }) => {
+const Tile = ({ id, setC }: { id: string, setC: Function }) => {
     const [ip, setInput] = useState('');
     
 	return (
