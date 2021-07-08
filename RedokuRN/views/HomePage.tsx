@@ -196,7 +196,7 @@ const HomePage = () => {
 		const setCorrect = (id: string) => {
 			ans.splice(ans.indexOf(id), 1);
 			setAnswers(ans);
-			if (ans.length <= 0) {
+			if (ans.length == 0) {
 				setWon(true);
 				winRef.current?.start();
 			}
@@ -223,7 +223,7 @@ const HomePage = () => {
 							style={{ color: colors.white }}
 						/>
 					</TouchableHighlight>
-					<Text style={styles.header}>REDOKU</Text>
+					<Text style={styles.header}>{won ? 'CONGRATS!' : 'REDOKU'}</Text>
 					<TouchableHighlight
 						style={styles.btnClickContain}
 						underlayColor={colors.red}
@@ -237,13 +237,13 @@ const HomePage = () => {
 					</TouchableHighlight>
 				</View>
 				<Board cExps={cExps} rExps={rExps} board={board} setC={setCorrect} />
-				<ConfettiCannon
+				{won && <ConfettiCannon
 					count={200}
 					autoStart={false}
 					origin={{ x: -10, y: 0 }}
 					colors={[colors.red, colors.blue]}
 					ref={winRef}
-				/>
+				/>}
 			</View>
 			<RedokuWebView ref={dictRef} />
 		</SafeAreaView>

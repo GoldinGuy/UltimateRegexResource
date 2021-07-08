@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "RedokuRN",
-    "slug": "RedokuRN",
+    "name": "Redoku",
+    "slug": "redoku",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

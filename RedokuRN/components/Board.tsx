@@ -131,11 +131,7 @@ const Board = ({ cExps, rExps, board, setC }: {
 								>
 									{col.map((id, idx) => {
 										return (
-											<Tile
-												id={id}
-												setC={setC}
-												key={`ans${id + idx}`}
-											/>
+											<Tile id={id} idx={idx} setC={setC} key={`ans${id + idx}`} />
 										);
 									})}
 								</View>
@@ -149,21 +145,21 @@ const Board = ({ cExps, rExps, board, setC }: {
 export default Board
 
 
-const Tile = ({ id, setC }: { id: string, setC: Function }) => {
-    const [ip, setInput] = useState('');
-    
+const Tile = ({ id, setC, idx }: { id: string; setC: Function; idx: number }) => {
+	const [ip, setInput] = useState("");
+
 	return (
 		<TextInput
-            autoFocus={true}
-            maxLength={1}
+			autoFocus={idx === 3 ? true : false}
+			maxLength={1}
 			style={{
 				textAlign: "center",
 				margin: 2,
 				height: 50,
 				width: 50,
 				fontSize: 24,
-                color: "#fff",
-                fontFamily: 'Menlo',
+				color: "#fff",
+				fontFamily: "Menlo",
 				backgroundColor:
 					ip == id
 						? "#6A8EAE" // blue
@@ -172,16 +168,16 @@ const Tile = ({ id, setC }: { id: string, setC: Function }) => {
 						: "#eee4da" // default
 			}}
 			placeholder=""
-            onChangeText={ip => {
-                // only accept alphanumeric chars
-                if (/^(?:[A-Za-z]+|\d+)$/.test(ip) || ip == '') {
-                    setInput(ip);
-                    if (ip == id) setC(id);
-                }
-            }}
-            value={ip}
-            defaultValue={ip}
-            editable={ip != id}
+			onChangeText={ip => {
+				// only accept alphanumeric chars
+				if (/^(?:[A-Za-z]+|\d+)$/.test(ip) || ip == "") {
+					setInput(ip);
+					if (ip == id) setC(id);
+				}
+			}}
+			value={ip}
+			defaultValue={ip}
+			editable={ip != id}
 		></TextInput>
 	);
 };
