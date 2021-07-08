@@ -12,7 +12,8 @@ Regex, or [regular expressions](https://en.wikipedia.org/wiki/Regular_expression
 
 Regex is incredibly powerful, but due to its seemingly unintelligible nature it's also often intimidating to learn and difficult to remember.
 
-![image](https://user-images.githubusercontent.com/47064842/124194070-ee6c7680-da95-11eb-8f9a-0a2d3f7c4f33.png)
+<img src="https://user-images.githubusercontent.com/47064842/124194070-ee6c7680-da95-11eb-8f9a-0a2d3f7c4f33.png" width="350" height="auto">
+<!-- ![image](https://user-images.githubusercontent.com/47064842/124194070-ee6c7680-da95-11eb-8f9a-0a2d3f7c4f33.png) -->
 
 For that reason, I've compiled a selection of the most helpful and commonly used regex syntax and some regex resources for your use below!
 
