@@ -32,6 +32,10 @@ For that reason, I've compiled a selection of the most helpful and commonly used
 
 The [Redoku](https://github.com/GoldinGuy/UltimateRegexResource/tree/master/RedokuRN) folder of this repo contains the app ["Redoku,"](TODO:) a simple React Native application created for this event that allows you to hone your Regex skills through sudoku-like puzzles. This was heavily based on [redoku](https://github.com/padolsey/redoku), an awesome website with the same name. Thank you to [@padolsey](https://github.com/padolsey) for granting permission to use the name "Redoku!" You can download the app on [ios](TODO:) or [android](TODO:).
 
+
+<img src="https://user-images.githubusercontent.com/47064842/125003395-212de600-e025-11eb-89d2-79fc79d8524f.png" width="300" height="auto">
+
+
 This repo contains a powerpoint presentation that can be viewed online [here](https://docs.google.com/presentation/d/1cTKU9GCAiubAG2wcFk9VdNwo5mn0ulzB7bJz9GICAWY/edit?usp=sharing).
 
 Anywhere used below, `char` is shorthand for `character` (letter, digit or symbol), and `exp` is shorthand for a `regular expression`.
