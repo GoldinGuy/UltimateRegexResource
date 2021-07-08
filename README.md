@@ -12,16 +12,10 @@ Regex, or [regular expressions](https://en.wikipedia.org/wiki/Regular_expression
 
 Regex is incredibly powerful, but due to its seemingly unintelligible nature it's also often intimidating to learn and difficult to remember.
 
-<img src="https://user-images.githubusercontent.com/47064842/124194070-ee6c7680-da95-11eb-8f9a-0a2d3f7c4f33.png" width="350" height="auto">
+<img src="https://user-images.githubusercontent.com/47064842/125002295-9a780980-e022-11eb-9b29-4411e2780aaa.png" width="350" height="auto">
 <!-- ![image](https://user-images.githubusercontent.com/47064842/124194070-ee6c7680-da95-11eb-8f9a-0a2d3f7c4f33.png) -->
 
 For that reason, I've compiled a selection of the most helpful and commonly used regex syntax and some regex resources for your use below!
-
-<!-- The [Docs](https://github.com/GoldinGuy/UltimateRegexResource/tree/main/docs) folder of this repo contains a simple profile/resume static site built on HTML5 and [TailwindCSS](https://v1.tailwindcss.com/) to help learn about [Github pages](https://pages.github.com/). You can clone the repository and test it out yourself, or visit [this link](https://goldinguy.github.io/UltimateRegexResource/) to see a live demo. For more info look at the [README](https://github.com/GoldinGuy/UltimateRegexResource/blob/main/docs/README.md) for the `/docs` directory. -->
-
-- This repo contains a powerpoint presentation that can be viewed online [here](https://docs.google.com/presentation/d/1cTKU9GCAiubAG2wcFk9VdNwo5mn0ulzB7bJz9GICAWY/edit?usp=sharing).
-
-- Anywhere used below, `char` is shorthand for `character` (letter, digit or symbol), and `exp` is shorthand for a `regular expression`.
 
 ## 📄 Table of Contents
 
@@ -35,6 +29,13 @@ For that reason, I've compiled a selection of the most helpful and commonly used
 - ["Malarkey" Anchors](#-malarkey-anchors)
 - ["Mumbo Jumbo" Regex Resources](#-mumbo-jumbo-regex-resources)
 - [Contributing](#-codswallop-contributing)
+
+The [Redoku](https://github.com/GoldinGuy/UltimateRegexResource/tree/master/RedokuRN) folder of this repo contains the app ["Redoku,"](TODO:) a simple React Native application created for this event that allows you to hone your Regex skills through sudoku-like puzzles. This was heavily based on [redoku](https://github.com/padolsey/redoku), an awesome website with the same name. Thank you to [@padolsey](https://github.com/padolsey) for granting permission to use the name "Redoku!" You can download the app on [ios](TODO:) or [android](TODO:).
+
+This repo contains a powerpoint presentation that can be viewed online [here](https://docs.google.com/presentation/d/1cTKU9GCAiubAG2wcFk9VdNwo5mn0ulzB7bJz9GICAWY/edit?usp=sharing).
+
+Anywhere used below, `char` is shorthand for `character` (letter, digit or symbol), and `exp` is shorthand for a `regular expression`.
+
 
 ### ✒️ "Balderdash" Basics (of Regex)
 
@@ -156,7 +157,6 @@ There are additional anchors available that are unaffected by multiline mode [m]
 - [Regexr](https://regexr.com/), another way to test your expressions
 - [Rubular](https://rubular.com/), a Ruby-based regex tester w/ quick reference
 - [Regex.Info](https://www.regular-expressions.info/), a plain but detailed guide to regex
-- [Redoku](https://padolsey.github.io/redoku/), a great gamified way to practice Regex
 - [RexEgg](http://www.rexegg.com/), the self proclaimed "world's most tyrannisaurical regex tutorial"
 - [CodeAcademy Regex Tutorial](https://www.codecademy.com/learn/introduction-to-regular-expressions), a 1-hour course w/ certification
 - [SitePoint Learn Regex](https://www.sitepoint.com/learn-regex/), a great tutorial of the fundamental concepts

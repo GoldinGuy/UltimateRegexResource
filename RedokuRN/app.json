@@ -5,6 +5,7 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
+    "owner": "goldin_guy",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -17,13 +18,15 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.goldinguy.redoku"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.goldinguy.redoku"
     },
     "web": {
       "favicon": "./assets/favicon.png"
