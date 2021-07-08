@@ -4,7 +4,7 @@ import HomePage from './views/HomePage';
 import * as SplashScreen from "expo-splash-screen";
 
 SplashScreen.preventAutoHideAsync();
-setTimeout(SplashScreen.hideAsync, 2000);
+setTimeout(SplashScreen.hideAsync, 500);
 
 export default function App() {
   return <HomePage />;

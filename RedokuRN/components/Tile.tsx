@@ -1,20 +1,23 @@
-import React, { useState } from "react";
+import React, {  useState } from "react";
 import { TextInput } from "react-native";
 
 const Tile = ({
 	id,
 	setC,
-	idx
+	idx,
+	focus
 }: {
 	id: string;
 	setC: Function;
 	idx: number;
-}) => {
+	focus: boolean
+	}) => {
+	
 	const [ip, setInput] = useState("");
 
 	return (
 		<TextInput
-			autoFocus={idx === 3 ? true : false}
+			autoFocus={focus}
 			maxLength={1}
 			style={{
 				textAlign: "center",

@@ -30,10 +30,10 @@ const Board = ({ cExps, rExps, board, setC }: {
 						display: "flex",
 						flexDirection: "row", // row
 						marginLeft: "auto",
-						transform: [{ translateX: 30 }],
+						transform: [{ translateX: 30 }, {translateY: 20}],
 						justifyContent: "flex-start",
 						height: 180,
-						width: 200
+						width: 200,
 						// backgroundColor: 'yellow'
 					}}
 				>
@@ -122,17 +122,17 @@ const Board = ({ cExps, rExps, board, setC }: {
 						})}
 					</View>
 					<View style={{ display: "flex", flexDirection: "column" }}>
-						{board.map((col, idx) => {
+						{board.map((col, c_idx) => {
 							return (
 								<View
-									key={`row${idx}`}
+									key={`row${c_idx}`}
 									style={{
 										flexDirection: "row"
 									}}
 								>
-									{col.map((id, idx) => {
+									{col.map((id, r_idx) => {
 										return (
-											<Tile id={id} idx={idx} setC={setC} key={`ans${id + idx}`} />
+											<Tile id={id} idx={r_idx} setC={setC} key={`ans${id + r_idx}`} focus={r_idx === 1 && c_idx === 1} />
 										);
 									})}
 								</View>
