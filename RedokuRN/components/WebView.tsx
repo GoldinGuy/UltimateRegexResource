@@ -288,7 +288,6 @@ export default RedukuWebView;
 const s = StyleSheet.create({
 	header: {
 		height: 44,
-
 		borderBottomColor: "#c1c4c7",
 		borderBottomWidth: 1,
 		borderTopLeftRadius: 12,

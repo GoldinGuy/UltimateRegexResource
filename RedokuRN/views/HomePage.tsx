@@ -7,7 +7,8 @@ import {
 	ScrollView,
 	SafeAreaView,
 	Button,
-	TouchableHighlight
+	TouchableHighlight,
+	Keyboard
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import Board from "../components/Board";
@@ -18,7 +19,7 @@ import ConfettiCannon from "react-native-confetti-cannon";
 import { colors } from "../utils/globals";
 import { useRef } from "react";
 // import Dictionary from "../components/RegexDict";
-import RedukuWebView from "../components/WebView";
+import RedokuWebView from "../components/WebView";
 
 const styles = StyleSheet.create({
 	safearea: {
@@ -61,7 +62,8 @@ const HomePage = () => {
 	const dictRef = useRef<any>(null);
 
 	  const handleOpenDict = useCallback(() => {
-			if (dictRef.current) {
+		  if (dictRef.current) {
+				Keyboard.dismiss();
 				dictRef.current?.open();
 			}
 		}, []);
@@ -243,17 +245,7 @@ const HomePage = () => {
 					ref={winRef}
 				/>
 			</View>
-			{/* <Dictionary /> */}
-			<RedukuWebView ref={dictRef} />
-			{/* <ModalizeWebView
-				ref={dictRef}
-				handlePosition="inside"
-				webViewProps={{
-					source: {
-						uri: "https://facebook.github.io/react-native/"
-					}
-				}}
-			/> */}
+			<RedokuWebView ref={dictRef} />
 		</SafeAreaView>
 	);
 };
