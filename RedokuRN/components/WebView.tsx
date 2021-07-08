@@ -1,3 +1,5 @@
+// https://github.com/jeremybarbet/react-native-modalize/blob/master/examples/expo/App.js
+
 import React, {
 	useRef,
 	useState,
