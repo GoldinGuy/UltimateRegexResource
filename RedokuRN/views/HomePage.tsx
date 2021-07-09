@@ -3,10 +3,7 @@ import {
 	StyleSheet,
 	Text,
 	View,
-	TextInput,
-	ScrollView,
 	SafeAreaView,
-	Button,
 	TouchableHighlight,
 	Keyboard
 } from "react-native";
@@ -14,9 +11,9 @@ import { StatusBar } from "expo-status-bar";
 import Board from "../components/Board";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faBookmark, faUndo, faUndoAlt } from "@fortawesome/free-solid-svg-icons";
-import { arrToGrid, escapeChars } from "../utils/utils";
+import { arrToGrid, coinFlip, escapeChars } from "../utils/utils";
 import ConfettiCannon from "react-native-confetti-cannon";
-import { colors } from "../utils/globals";
+import { CHARS, colors, R_0, R_1, R_2, R_3 } from "../utils/globals";
 import { useRef } from "react";
 import RedokuWebView from "../components/WebView";
 
@@ -29,7 +26,6 @@ const styles = StyleSheet.create({
 		flex: 1,
 		alignItems: "center",
 		backgroundColor: colors.beige
-		// maxWidth: screen.width
 	},navbar:{
 		padding: 20,
 		backgroundColor: colors.red,
@@ -54,7 +50,7 @@ const HomePage = () => {
 	const [cExps, setCExps] = useState<string[]>([]);
 	const [rExps, setRExps] = useState<string[]>([]);
 	const [board, setBoard] = useState<string[][]>([]);
-	const [ans, setAnswers] = useState<string[]>([]);
+	const [ans, setAnswers] = useState<string[]>([""]);
 	const [won, setWon] = useState(true);
 
 	const winRef = useRef<ConfettiCannon>(null);
@@ -66,50 +62,13 @@ const HomePage = () => {
 			dictRef.current?.open();
 		}
 	}, []);
-	// Regex generation based on https://padolsey.github.io/redoku/
 
-	const charSet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVXYZ".split(
-		""
-	);
-
-	const ZERO_LENGTH_GOTCHAS = [
-		// TODO: Maybe up the ante with lookaheads here...
-		".*",
-		".?",
-		"[RR]*",
-		"R*",
-		"R?" //, '(R|R)?', 'R?(?=[0RR])'
-	];
-	const ONE_CLASS = ["[R0R]", "[R]?0", "0?", "[0]", "0R*", "0"];
-	const TWO_CLASS = [
-		"[R10]+",
-		"0[R1R]",
-		"[R0]1",
-		"(01|RR)",
-		"(RR|01)",
-		"[1R0][1R]",
-		"[1RR0]+",
-		"R?[10R]+"
-	];
-	const THREE_CLASS = [
-		"[2R10]+",
-		"[102R]+",
-		"0R*1[R2]",
-		"R?0+1[2R]",
-		"[1R2R0]+",
-		"[2R]?[120R]+"
-	];
-
-	function coinFlip() {
-		return Math.random() > 0.5;
-	}
-
-	const use = (a: string[], chars: string[], cleanedCharSet: string[]) => {
+	const addRx = (a: string[], chars: string[], cleanCs: string[]) => {
 		return a[0 | (Math.random() * a.length)].replace(/\w/g, ($: string) => {
 			switch ($) {
 				case "R":
 					return escapeChars(
-						cleanedCharSet[0 | (Math.random() * cleanedCharSet.length)]
+						cleanCs[0 | (Math.random() * cleanCs.length)]
 					);
 				default:
 					return escapeChars(chars[+$]);
@@ -118,29 +77,25 @@ const HomePage = () => {
 	};
 
 	const genRegex = (chars: string[]) => {
-		let cleanedCharSet = charSet
-			.join("")
-			.replace(
-				RegExp("[" + escapeChars(chars.join("")) + "]+", "g"),
-				""
-			)
+		// Regex generation based on https://padolsey.github.io/redoku/
+		let cleanCs = CHARS.join("")
+			.replace(RegExp("[" + escapeChars(chars.join("")) + "]+", "g"), "")
 			.split("");
 
 		var r = "";
-
-		for (var i = 0, l = chars.length; i < l; i++) {
+		for (var i = 0, char_l = chars.length; i < char_l; i++) {
 			var nextChars = chars.slice(i);
 
-			if (coinFlip()) r += use(ZERO_LENGTH_GOTCHAS, nextChars, cleanedCharSet);
+			if (coinFlip()) r += addRx(R_0, nextChars, cleanCs);
 
-			if (coinFlip() && i + 2 < l) {
-				r += use(THREE_CLASS, nextChars, cleanedCharSet);
+			if (coinFlip() && i + 2 < char_l) {
+				r += addRx(R_3, nextChars, cleanCs);
 				i += 2;
-			} else if (i + 1 < l) {
-				r += use(TWO_CLASS, nextChars, cleanedCharSet);
+			} else if (i + 1 < char_l) {
+				r += addRx(R_2, nextChars, cleanCs);
 				i += 1;
 			} else {
-				r += use(ONE_CLASS, nextChars, cleanedCharSet);
+				r += addRx(R_1, nextChars, cleanCs);
 			}
 		}
 		console.log(r);
@@ -149,13 +104,15 @@ const HomePage = () => {
 
 	const createGame = () => {
 		setWon(false);
+		setAnswers([""]);
+		setBoard([[]]);
 		let rows = 4,
 			cols = 4;
 		let answers = Array(rows * cols + 1)
 			.join()
 			.split("")
 			.map(() => {
-				return charSet[0 | (Math.random() * charSet.length)];
+				return CHARS[0 | (Math.random() * CHARS.length)];
 			});
 
 		let rowExps = [],
@@ -173,25 +130,29 @@ const HomePage = () => {
 			}
 			colExps.push(genRegex(colChars));
 		}
-
 		setAnswers(answers);
-		let arrGrid = arrToGrid(answers, 4);
-
+		let boardArr = arrToGrid(answers, 4);
 		console.log(
-			JSON.stringify({ cols: colExps, rows: rowExps, ans: arrGrid }, null, 4)
+			JSON.stringify(
+				{ cols: colExps, rows: rowExps, board: boardArr, ans: answers },
+				null,
+				4
+			)
 		);
 		setCExps(colExps);
 		setRExps(rowExps);
-		setBoard(arrGrid);
+		setBoard(boardArr);
 	};
 
-	const setCorrect = (id: string) => {
-		ans.splice(ans.indexOf(id), 1);
-		setAnswers(ans);
-		if (ans.length == 0) {
-			setWon(true);
-			winRef.current?.start();
-		}
+	const setCorrect = (idx: number) => {
+		setAnswers(a => {
+			a = a.filter((_, i) => i !== idx - (16 - a.length));
+			if (a.length === 0) {
+				setWon(true);
+				winRef.current?.start();
+			}
+			return a
+		});
 	};
 
 	useEffect(() => {
@@ -216,6 +177,7 @@ const HomePage = () => {
 						/>
 					</TouchableHighlight>
 					<Text style={styles.header}>{won ? "CONGRATS!" : "REDOKU"}</Text>
+					{/* For testing: <Text>{ans}</Text> */}
 					<TouchableHighlight
 						style={styles.btnClickContain}
 						underlayColor={colors.red}
@@ -229,15 +191,13 @@ const HomePage = () => {
 					</TouchableHighlight>
 				</View>
 				<Board cExps={cExps} rExps={rExps} board={board} setC={setCorrect} />
-				{won && (
-					<ConfettiCannon
-						count={200}
-						autoStart={false}
-						origin={{ x: -10, y: 0 }}
-						colors={[colors.red, colors.blue]}
-						ref={winRef}
-					/>
-				)}
+				<ConfettiCannon
+					count={200}
+					ref={winRef}
+					autoStart={false}
+					origin={{ x: -10, y: 0 }}
+					colors={[colors.red, colors.blue]}
+				/>
 			</View>
 			<RedokuWebView ref={dictRef} />
 		</SafeAreaView>

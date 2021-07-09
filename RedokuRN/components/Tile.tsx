@@ -1,5 +1,6 @@
 import React, {  useState } from "react";
 import { TextInput } from "react-native";
+import { colors } from "../utils/globals";
 
 const Tile = ({
 	id,
@@ -10,9 +11,8 @@ const Tile = ({
 	id: string;
 	setC: Function;
 	idx: number;
-	focus: boolean
-	}) => {
-	
+	focus: boolean;
+}) => {
 	const [ip, setInput] = useState("");
 
 	return (
@@ -29,17 +29,17 @@ const Tile = ({
 				fontFamily: "Menlo",
 				backgroundColor:
 					ip == id
-						? "#6A8EAE" // blue
+						? colors.blue
 						: ip != id && ip.length > 0
-						? "#DF7373" // red
-						: "#eee4da" // default
+						? colors.red
+						: colors.darkBeige
 			}}
 			placeholder=""
 			onChangeText={ip => {
 				// only accept alphanumeric chars
 				if (/^(?:[A-Za-z]+|\d+)$/.test(ip) || ip == "") {
 					setInput(ip);
-					if (ip == id) setC(id);
+					if (ip == id) setC(idx);
 				}
 			}}
 			value={ip}

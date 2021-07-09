@@ -5,6 +5,7 @@ import { View, TextInput, Text } from "react-native";
 import { arrToGrid, escapeChars } from "../utils/utils";
 import { Dimensions } from 'react-native';
 import Tile from "./Tile";
+import { colors } from "../utils/globals";
 
 
 const Board = ({ cExps, rExps, board, setC }: {
@@ -67,7 +68,7 @@ const Board = ({ cExps, rExps, board, setC }: {
 										// right: 10,
 										fontFamily: "Menlo",
 										textAlign: "right",
-										color: "#776E65"
+										color: colors.gray
 									}}
 								>
 									{exp}
@@ -113,7 +114,7 @@ const Board = ({ cExps, rExps, board, setC }: {
 										fontFamily: "Menlo",
 										lineHeight: 40,
 										textAlignVertical: "center",
-										color: "#776E65"
+										color: colors.gray
 									}}
 								>
 									{exp}
@@ -131,8 +132,15 @@ const Board = ({ cExps, rExps, board, setC }: {
 									}}
 								>
 									{col.map((id, r_idx) => {
+										// console.log(c_idx * 4 + r_idx);
 										return (
-											<Tile id={id} idx={r_idx} setC={setC} key={`ans${id + r_idx}`} focus={r_idx === 1 && c_idx === 1} />
+											<Tile
+												id={id}
+												idx={c_idx * 4 + r_idx}
+												setC={setC}
+												key={`ans${id + r_idx}`}
+												focus={r_idx === 0 && c_idx === 0}
+											/>
 										);
 									})}
 								</View>

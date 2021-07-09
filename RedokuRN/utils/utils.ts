@@ -10,3 +10,7 @@ export function escapeChars(s: string) {
 	if (s) return s.replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&");
 	else return "";
 };
+
+export function coinFlip() {
+	return Math.random() > 0.5;
+};
