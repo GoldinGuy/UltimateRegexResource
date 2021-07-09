@@ -11,7 +11,6 @@ const Board = ({ cExps, rExps, board, setC }: {
 	setC: Function
 }) => {    
     const winWidth = Dimensions.get('window').width;
-    // const winHeight = Dimensions.get('window').height;
     return (
 			<View
 				style={{
@@ -21,13 +20,12 @@ const Board = ({ cExps, rExps, board, setC }: {
 				<View
 					style={{
 						display: "flex",
-						flexDirection: "row", // row
+						flexDirection: "row", 
 						marginLeft: "auto",
 						transform: [{ translateX: 30 }, {translateY: 20}],
 						justifyContent: "flex-start",
 						height: 180,
 						width: 200,
-						// backgroundColor: 'yellow'
 					}}
 				>
 					{cExps.map(exp => {
@@ -38,7 +36,6 @@ const Board = ({ cExps, rExps, board, setC }: {
 									width: 50,
 									transform: [
 										{ rotate: "45deg" }
-										// { translateY: -100} //"300deg" },
 									]
 								}}
 							>
@@ -47,17 +44,12 @@ const Board = ({ cExps, rExps, board, setC }: {
 									numberOfLines={1}
 									adjustsFontSizeToFit
 									style={{
-										// height: 100,
-										// flex: 1,
 										width: 250,
 										position: "absolute",
 										bottom: 0,
 										right: 0,
 										fontSize: 17,
-										// flexShrink: 1,
-										// flexWrap: "wrap",
 										margin: 10,
-										// right: 10,
 										fontFamily: "Menlo",
 										textAlign: "right",
 										color: colors.gray
@@ -94,7 +86,6 @@ const Board = ({ cExps, rExps, board, setC }: {
 									style={{
 										textAlign: "right",
 										height: 50,
-										// width: "100%",
                                         width: winWidth - 250,
 										fontSize: 17,
 										margin: 2,
@@ -102,7 +93,6 @@ const Board = ({ cExps, rExps, board, setC }: {
                                         justifyContent: 'center',
                                         display: 'flex',
                                         alignItems: 'center',
-										// flexShrink: 1,
 										fontFamily: "Menlo",
 										lineHeight: 40,
 										textAlignVertical: "center",
@@ -124,7 +114,6 @@ const Board = ({ cExps, rExps, board, setC }: {
 									}}
 								>
 									{col.map((id, r_idx) => {
-										// console.log(c_idx * 4 + r_idx);
 										return (
 											<Tile
 												id={id}
