@@ -1,12 +1,8 @@
 import React from "react";
-import { useState } from "react";
-import { useEffect } from "react";
-import { View, TextInput, Text } from "react-native";
-import { arrToGrid, escapeChars } from "../utils/utils";
+import { View, Text } from "react-native";
 import { Dimensions } from 'react-native';
-import Tile from "./Tile";
 import { colors } from "../utils/globals";
-
+import Tile from "./Tile";
 
 const Board = ({ cExps, rExps, board, setC }: {
 	cExps: string[]
@@ -14,12 +10,8 @@ const Board = ({ cExps, rExps, board, setC }: {
 	board: string[][]
 	setC: Function
 }) => {    
-   
-
     const winWidth = Dimensions.get('window').width;
-    const winHeight = Dimensions.get('window').height;
-
-
+    // const winHeight = Dimensions.get('window').height;
     return (
 			<View
 				style={{
