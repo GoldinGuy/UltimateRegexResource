@@ -50,7 +50,7 @@ const HomePage = () => {
 	const [cExps, setCExps] = useState<string[]>([]);
 	const [rExps, setRExps] = useState<string[]>([]);
 	const [board, setBoard] = useState<string[][]>([]);
-	const [ans, setAnswers] = useState<string[]>([""]);
+	const [ans, setAnswers] = useState<string[]>([]);
 	const [won, setWon] = useState(true);
 
 	const winRef = useRef<ConfettiCannon>(null);
@@ -104,8 +104,13 @@ const HomePage = () => {
 
 	const createGame = () => {
 		setWon(false);
-		setAnswers([""]);
-		setBoard([[]]);
+		setAnswers([]);
+		setBoard([
+			["", "", "", ""],
+			["", "", "", ""],
+			["", "", "", ""],
+			["", "", "", ""]
+		]);
 		let rows = 4,
 			cols = 4;
 		let answers = Array(rows * cols + 1)
@@ -130,7 +135,7 @@ const HomePage = () => {
 			}
 			colExps.push(genRegex(colChars));
 		}
-		setAnswers(answers);
+		// setAnswers(answers);
 		let boardArr = arrToGrid(answers, 4);
 		console.log(
 			JSON.stringify(
@@ -144,16 +149,50 @@ const HomePage = () => {
 		setBoard(boardArr);
 	};
 
+	// const setCorrect = (idx: number) => {
+	// 	setAnswers(a => {
+	// 		let b = [...a, "0"];
+	// 		if (b.length >= 16) {
+				
+	// 		}
+	// 		return b
+	// 	});
+	// };
+	// useEffect(() => {
+	// 	if (ans.length === 0) {
+	// 		setWon(true);
+	// 		winRef.current?.start();
+	// 	}
+	// }, [ans])
+
 	const setCorrect = (idx: number) => {
 		setAnswers(a => {
-			a = a.filter((_, i) => i !== idx - (16 - a.length));
-			if (a.length === 0) {
+			a = [...a, "*"]
+			if (a.length >= 16) {
 				setWon(true);
 				winRef.current?.start();
 			}
 			return a
-		});
-	};
+			// 	a[idx] = "*";
+			// 	if (a.every(b => b === a[0])) {
+			// 		setWon(true);
+			// 		winRef.current?.start();
+			// 	}
+			// return a
+		})
+		// setAnswers(a => {
+		// 		if (idx != 0 && idx ) {
+		// 			idx = idx - (16 - a.length);
+		// 		}
+		// 		let b = a.filter((_, i) => i !== idx);
+		// 		if (b.length === 0) {
+		// 			setWon(true);
+		// 			winRef.current?.start();
+		// 		}
+		// 		return b;
+		// 	});
+		};
+
 
 	useEffect(() => {
 		createGame();
@@ -177,7 +216,6 @@ const HomePage = () => {
 						/>
 					</TouchableHighlight>
 					<Text style={styles.header}>{won ? "CONGRATS!" : "REDOKU"}</Text>
-					{/* For testing: <Text>{ans}</Text> */}
 					<TouchableHighlight
 						style={styles.btnClickContain}
 						underlayColor={colors.red}
@@ -191,6 +229,8 @@ const HomePage = () => {
 					</TouchableHighlight>
 				</View>
 				<Board cExps={cExps} rExps={rExps} board={board} setC={setCorrect} />
+				{/* For testing: */}
+				<Text>{ans}</Text>
 				<ConfettiCannon
 					count={200}
 					ref={winRef}

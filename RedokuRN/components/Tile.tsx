@@ -39,7 +39,7 @@ const Tile = ({
 				// only accept alphanumeric chars
 				if (/^(?:[A-Za-z]+|\d+)$/.test(ip) || ip == "") {
 					setInput(ip);
-					if (ip == id) setC(idx);
+					if (ip === id) setC(idx);
 				}
 			}}
 			value={ip}
