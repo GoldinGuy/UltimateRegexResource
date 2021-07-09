@@ -149,21 +149,6 @@ const HomePage = () => {
 		setBoard(boardArr);
 	};
 
-	// const setCorrect = (idx: number) => {
-	// 	setAnswers(a => {
-	// 		let b = [...a, "0"];
-	// 		if (b.length >= 16) {
-				
-	// 		}
-	// 		return b
-	// 	});
-	// };
-	// useEffect(() => {
-	// 	if (ans.length === 0) {
-	// 		setWon(true);
-	// 		winRef.current?.start();
-	// 	}
-	// }, [ans])
 
 	const setCorrect = (idx: number) => {
 		setAnswers(a => {
@@ -173,25 +158,8 @@ const HomePage = () => {
 				winRef.current?.start();
 			}
 			return a
-			// 	a[idx] = "*";
-			// 	if (a.every(b => b === a[0])) {
-			// 		setWon(true);
-			// 		winRef.current?.start();
-			// 	}
-			// return a
 		})
-		// setAnswers(a => {
-		// 		if (idx != 0 && idx ) {
-		// 			idx = idx - (16 - a.length);
-		// 		}
-		// 		let b = a.filter((_, i) => i !== idx);
-		// 		if (b.length === 0) {
-		// 			setWon(true);
-		// 			winRef.current?.start();
-		// 		}
-		// 		return b;
-		// 	});
-		};
+	};
 
 
 	useEffect(() => {
@@ -230,7 +198,7 @@ const HomePage = () => {
 				</View>
 				<Board cExps={cExps} rExps={rExps} board={board} setC={setCorrect} />
 				{/* For testing: */}
-				<Text>{ans}</Text>
+				{/* <Text>{ans}</Text> */}
 				<ConfettiCannon
 					count={200}
 					ref={winRef}
