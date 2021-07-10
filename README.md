@@ -34,10 +34,10 @@ This repo contains a powerpoint presentation that can be viewed online [here](ht
 
 The [Redoku](https://github.com/GoldinGuy/UltimateRegexResource/tree/master/RedokuRN) folder of this repo contains the app ["Redoku,"](TODO:) a simple React Native application created for this event that allows you to hone your Regex skills through sudoku-like puzzles. This was heavily based on [redoku](https://github.com/padolsey/redoku), an awesome website with the same name. Thank you to [@padolsey](https://github.com/padolsey) for granting permission to use the name "Redoku!" Download it below!
 
-<div style="display: flex; align-items:center;">
-<a href='https://play.google.com/store/apps/details?id=com.goldinguy.redoku&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on the App Store' src='https://user-images.githubusercontent.com/47064842/125152465-b363e600-e11a-11eb-8b4f-0dcbf67f3973.png' height="41" width="auto" /></a>
-<a href='https://play.google.com/store/apps/details?id=com.goldinguy.redoku&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' height="60" width="auto" /></a>
-</div>
+| iOS | Android | 
+| --- | ------| 
+| <a href='https://play.google.com/store/apps/details?id=com.goldinguy.redoku&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on the App Store' src='https://user-images.githubusercontent.com/47064842/125152465-b363e600-e11a-11eb-8b4f-0dcbf67f3973.png' height="41" width="auto" /></a> |  <a href='https://play.google.com/store/apps/details?id=com.goldinguy.redoku&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' height="60" width="auto" /></a>
+</div> 
 
 
 <img src="https://user-images.githubusercontent.com/47064842/125152573-4b61cf80-e11b-11eb-85f8-862de685d067.png" width="260" height="auto">
