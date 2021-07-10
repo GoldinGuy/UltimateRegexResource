@@ -22,12 +22,13 @@
       "bundleIdentifier": "com.goldinguy.redoku"
     },
     "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
-      },
-      "package": "com.goldinguy.redoku"
-    },
+			"adaptiveIcon": {
+				"foregroundImage": "./assets/adaptive-icon.png",
+				"backgroundColor": "#FFFFFF"
+			},
+			"package": "com.goldinguy.redoku",
+			"versionCode": 2
+		},
     "web": {
       "favicon": "./assets/favicon.png"
     }
