@@ -30,13 +30,20 @@ For that reason, I've compiled a selection of the most helpful and commonly used
 - ["Mumbo Jumbo" Regex Resources](#-mumbo-jumbo-regex-resources)
 - [Contributing](#-codswallop-contributing)
 
-The [Redoku](https://github.com/GoldinGuy/UltimateRegexResource/tree/master/RedokuRN) folder of this repo contains the app ["Redoku,"](TODO:) a simple React Native application created for this event that allows you to hone your Regex skills through sudoku-like puzzles. This was heavily based on [redoku](https://github.com/padolsey/redoku), an awesome website with the same name. Thank you to [@padolsey](https://github.com/padolsey) for granting permission to use the name "Redoku!" You can download the app on [ios](TODO:) or [android](TODO:).
-
-
-<img src="https://user-images.githubusercontent.com/47064842/125003395-212de600-e025-11eb-89d2-79fc79d8524f.png" width="300" height="auto">
-
-
 This repo contains a powerpoint presentation that can be viewed online [here](https://docs.google.com/presentation/d/1cTKU9GCAiubAG2wcFk9VdNwo5mn0ulzB7bJz9GICAWY/edit?usp=sharing).
+
+The [Redoku](https://github.com/GoldinGuy/UltimateRegexResource/tree/master/RedokuRN) folder of this repo contains the app ["Redoku,"](TODO:) a simple React Native application created for this event that allows you to hone your Regex skills through sudoku-like puzzles. This was heavily based on [redoku](https://github.com/padolsey/redoku), an awesome website with the same name. Thank you to [@padolsey](https://github.com/padolsey) for granting permission to use the name "Redoku!" Download it below!
+
+<div style="display: flex; align-items:center;">
+<a href='https://play.google.com/store/apps/details?id=com.goldinguy.redoku&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on the App Store' src='https://user-images.githubusercontent.com/47064842/125152465-b363e600-e11a-11eb-8b4f-0dcbf67f3973.png' height="41" width="auto" /></a>
+<a href='https://play.google.com/store/apps/details?id=com.goldinguy.redoku&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' height="60" width="auto" /></a>
+</div>
+
+
+<img src="https://user-images.githubusercontent.com/47064842/125152573-4b61cf80-e11b-11eb-85f8-862de685d067.png" width="260" height="auto">
+
+
+#### Notes
 
 Anywhere used below, `char` is shorthand for `character` (letter, digit or symbol), and `exp` is shorthand for a `regular expression`.
 
@@ -48,7 +55,7 @@ Anywhere used below, `char` is shorthand for `character` (letter, digit or symbo
 
 Therefore: given the sample string `I scream, you scream, we all scream for ice cream`, `/scream/` matches the first instance of "scream."
 
-This behavior can be modified with [flags](#-flags).
+This behavior can be modified with [flags](#-flapdoodle-flags).
 
 ### 🚩 "Flapdoodle" Flags
 
@@ -146,7 +153,7 @@ What this means in practice is that possessive quantifiers will always return ei
 | `\b`   | _word boundary_         | Between a character matched and not matched by `\w` | `she sells seasells` | `s\b`              | `s`           |
 | `\B`   | **NOT** _word boundary_ | Between two characters matched by `\w`              | `she sells seasells` | `\w+$`             | `seashells`   |
 
-There are additional anchors available that are unaffected by multiline mode [m](#-flags).
+There are additional anchors available that are unaffected by multiline mode [m](#-flapdoodle-flags).
 
 | Syntax | Anchor         | Matches                                            | Example String    | Example Expression | Example Match |
 | ------ | -------------- | -------------------------------------------------- | ----------------- | ------------------ | ------------- |
