@@ -36,7 +36,7 @@ The [Redoku](https://github.com/GoldinGuy/UltimateRegexResource/tree/master/Redo
 
 | iOS | Android | 
 | --- | ------| 
-| <a href='https://play.google.com/store/apps/details?id=com.goldinguy.redoku&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on the App Store' src='https://user-images.githubusercontent.com/47064842/125152465-b363e600-e11a-11eb-8b4f-0dcbf67f3973.png' height="41" width="auto" /></a> |  <a href='https://play.google.com/store/apps/details?id=com.goldinguy.redoku&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' height="60" width="auto" /></a>
+| <a href='https://apps.apple.com/us/app/redoku/id1575803391#?platform=iphone'><img alt='Get it on the App Store' src='https://user-images.githubusercontent.com/47064842/125152465-b363e600-e11a-11eb-8b4f-0dcbf67f3973.png' height="41" width="auto" /></a> |  <a href='https://play.google.com/store/apps/details?id=com.goldinguy.redoku&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' height="60" width="auto" /></a>
 </div> 
 
 
