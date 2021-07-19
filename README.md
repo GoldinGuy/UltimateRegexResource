@@ -45,15 +45,16 @@ The [Redoku](https://github.com/GoldinGuy/UltimateRegexResource/tree/master/Redo
 
 #### Notes
 
-Anywhere used below, `char` is shorthand for `character` (letter, digit or symbol), and `exp` is shorthand for a `regular expression`.
-
+- Regex has different flavors depending on the language you are using. Different engines support different features and some patterns have different meanings. While this resource attempts to cover as much as possible, there may be slight differences. 
+- UltimateRegexResource uses Javascript as the default regex engine. If there are differences between languages I attempt to note them. For a full review of what regex patterns are legal in each language, check out this awesome [gist](https://gist.github.com/CMCDragonkai/6c933f4a7d713ef712145c5eb94a1816).
+- Anywhere used below, `character` represents either a letter, digit or symbol.
 
 ### ✒️ "Balderdash" Basics (of Regex)
 
-- Regular expressions start and end with "slash" characters `/`.
+- Regular expressions start and end with "delimiters." For example, Javascript regex literals generally have "slash" characters `/`, and Python regex usually begins with `r"` and end with `"`. _(While Python doesn't necessarily have Regex literals perse, Regex is written more easily using raw strings to avoid worrying about string escapes)_.
 - Patterns return the first [case-sensitive](https://en.wikipedia.org/wiki/Case_sensitivity) match they find by default.
 
-Therefore: given the sample string `I scream, you scream, we all scream for ice cream`, `/scream/` matches the first instance of "scream."
+Therefore: given the sample string `I scream, you scream, we all SCREAM for ice cream`, `/scream/` matches the first instance of "scream."
 
 This behavior can be modified with [flags](#-flapdoodle-flags).
 
@@ -67,7 +68,7 @@ This behavior can be modified with [flags](#-flapdoodle-flags).
 | `u`    | _unicode_     | Expressions are treated as Unicode (UTF-16)                    | `/foo/u` |
 | `s`    | _singleline_  | Treats entire string as one line (allows `.` to match newline) | `/foo/s` |
 | `m`    | _multiline_   | Start & end anchors now trigger on each line                   | `/foo/m` |
-| `n`    | _nth match_   | Matches text returned by _nth_ group                           | `/foo/m` |
+| `n`    | _nth match_   | Matches text returned by _nth_ group                           | `/foo/n` |
 
 Regex includes several flags that are appended to the end of the expression to change behavior. Using the string `I scream, you scream, we all SCREAM for ice cream`, the updated regex `/scream/gi` will now return `scream scream SCREAM`.
 
@@ -75,8 +76,8 @@ Regex includes several flags that are appended to the end of the expression to c
 
 | Syntax | Character            | Matches                                                                                         | Example String | Example Expression | Example Match |
 | ------ | -------------------- | ----------------------------------------------------------------------------------------------- | -------------- | ------------------ | ------------- |
-| `.`    | _any_                | Literally any char _(except line break)_                                                        | `a-c1-3`       | `a.c`              | `a-c`         |
-| `\w`   | _word_               | ASCII char _(Or Unicode char in Python & C#)_                                                   | `a-c1-3`       | `\w-\w`            | `a-c`         |
+| `.`    | _any_                | Literally any character _(except line break)_                                                        | `a-c1-3`       | `a.c`              | `a-c`         |
+| `\w`   | _word_               | ASCII character _(Or Unicode character in Python & C#)_                                                   | `a-c1-3`       | `\w-\w`            | `a-c`         |
 | `\d`   | _digit_              | Digit 0-9 _(Or Unicode digit in Python & C#)_                                                   | `a-c1-3`       | `\d-\d`            | `1-3`         |
 | `\s`   | _whitespace_         | Space, tab, vertical tab, newline, carriage return _(Or Unicode seperator in Python, C#, & JS)_ | `a b`          | `a\sb`             | `a b`         |
 | `\W`   | **NOT** _word_       | Anything `\w` does not match                                                                    | `a-c1-3`       | `\W-\W`            | `1-3`         |
@@ -91,23 +92,35 @@ Regex includes several flags that are appended to the end of the expression to c
 
 | Syntax | Substitute        | Behavior                      |
 | ------ | ----------------- | ----------------------------- |
-| `\n`   | _newline_         | Insert a newline char         |
-| `\t`   | _tab_             | Insert a tab char             |
-| `\r`   | _carriage return_ | Insert a carriage return char |
-| `\f`   | _form-feed_       | Insert a form feed char       |
+| `\n`   | _newline_         | Insert a newline character         |
+| `\t`   | _tab_             | Insert a tab character             |
+| `\r`   | _carriage return_ | Insert a carriage return character |
+| `\f`   | _form-feed_       | Insert a form feed character       |
 
 ### 🖌️ "Rigmarole" Ranges
 
 | Syntax     | Range                 | Matches                                     | Example String     | Example Expression | Example Match   |
 | ---------- | --------------------- | ------------------------------------------- | ------------------ | ------------------ | --------------- |
 | `[pog]`    | _word list_           | Either `p`, `o`, or `g`                     | `awesomePOSSUM123` | `[awesum]+`        | `awes`          |
-| `[^pog]`   | **NOT** _word list_   | Any char except `p`, `o`, or `g`            | `awesomePOSSUM123` | `[^awesum]+`       | `o`             |
-| `[a-z]`    | _word range_          | Any char between `a` and `z`, inclusive     | `awesomePOSSUM123` | `[a-z]+`           | `awesome`       |
-| `[^a-z]`   | **NOT** _word range_  | Any char not between `a` and `z`, inclusive | `awesomePOSSUM123` | `[^a-z]+`          | `123`           |
-| `[0-9]`    | _digit range_         | Any char between `0` and `9`, inclusive     | `awesomePOSSUM123` | `[0-9]+`           | `123`           |
-| `[^0-9]`   | **NOT** _digit range_ | Any char not between `0` and `9`, inclusive | `awesomePOSSUM123` | `[^0-9]+`          | `awesomePOSSUM` |
-| `[a-zA-Z]` | _word range_          | Any char not between `a` and `z`, inclusive | `awesomePOSSUM123` | `[a-zA-Z]+`        | `awesomePOSSUM` |
-| `[a-zA-Z]` | _word range_          | Any char not between `a` and `z`, inclusive | `awesomePOSSUM123` | `[a-zA-Z]+`        | `awesomePOSSUM` |
+| `[^pog]`   | **NOT** _word list_   | Any character except `p`, `o`, or `g`            | `awesomePOSSUM123` | `[^awesum]+`       | `o`             |
+| `[a-z]`    | _word range_          | Any character between `a` and `z`, inclusive     | `awesomePOSSUM123` | `[a-z]+`           | `awesome`       |
+| `[^a-z]`   | **NOT** _word range_  | Any character not between `a` and `z`, inclusive | `awesomePOSSUM123` | `[^a-z]+`          | `123`           |
+| `[0-9]`    | _digit range_         | Any character between `0` and `9`, inclusive     | `awesomePOSSUM123` | `[0-9]+`           | `123`           |
+| `[^0-9]`   | **NOT** _digit range_ | Any character not between `0` and `9`, inclusive | `awesomePOSSUM123` | `[^0-9]+`          | `awesomePOSSUM` |
+| `[a-zA-Z]` | _word range_          | Any character not between `a` and `z`, inclusive | `awesomePOSSUM123` | `[a-zA-Z]+`        | `awesomePOSSUM` |
+| `[a-zA-Z]` | _word range_          | Any character not between `a` and `z`, inclusive | `awesomePOSSUM123` | `[a-zA-Z]+`        | `awesomePOSSUM` |
+
+There are also a few (mostly) semantically identical patterns in Golang and PHP. These do not appear to be supported in JS or Python:
+
+| Syntax     | Range                 | Matches                                     | Example String     | Example Expression | Example Match   |
+| ---------- | --------------------- | ------------------------------------------- | ------------------ | ------------------ | --------------- |
+| `[[:alpha:]]`    | _alpha class_           |  Any character between `a` and `z`, inclusive, not case sensitive   | `Woodchuck could chuck 33 wood logs.` | `[[:alpha:]]+`        | `Woodchuck`          |
+| `[[:digit:]]`   |  _digit class_    |  Any digit 0-9     | `Woodchuck could chuck 33 wood logs.` | `[[:digit:]]+`       | `33`             |
+| `[[:alnum:]]`    | _alphanumeric class_           | Any character between `a` and `z`, inclusive, not case sensitive, and any digit 0-9     | `Woodchuck could chuck 33 wood logs.` | `[[:alnum:]]+`           | `Woodchuck`       |
+| `[[:punct:]]`    |  _punctuation class_            | Any of `?!.,:;`  | `Woodchuck could chuck 33 wood logs.` | `[[:punct:]]+`           | `.`       |
+
+
+In some flavors of regex the above are also called "Character Classes."
 
 ### 🖊️ "Jargon" Quantifiers
 
@@ -126,14 +139,22 @@ Beyond standard quantifiers, there are a few additional modifiers: _greedy_, _la
 | `+`    | _1+ greedy_     | 1 or more of the preceding expression, using as many chars as possible                       | `abccc`        | `c+`               | `ccc`         |
 | `*?`   | _0+ lazy_       | 0 or more of the preceding expression, using as few chars as possible                        | `abccc`        | `c*?`              | `c`           |
 | `+?`   | _1+ lazy_       | 1 or more of the preceding expression, using as few chars as possible                        | `abccc`        | `c+?`              | `c`           |
-| `*+`   | _0+ possessive_ | 0 or more of the preceding expression, using as many chars as possible, without backtracking | `abccc`        | `c*+`              | `ccc`         |
-| `++`   | _1+ possessive_ | 1 or more of the preceding expression, using as many chars as possible, without backtracking | `abccc`        | `c++`              | `ccc`         |
+| `*+`   | _0+ possessive_ | 0 or more of the preceding expression, using as many chars as possible, without backtracking _(Not supported in JS or PY)_ | `abccc`        | `c*+`              | `ccc`         |
+| `++`   | _1+ possessive_ | 1 or more of the preceding expression, using as many chars as possible, without backtracking _(Not supported in JS or PY)_ | `abccc`        | `c++`              | `ccc`         |
 
 Put simply, greedy quantifiers match as much as possible, lazy as little as possible, and possessive as much as possible without backtracking.
 
 What this means in practice is that possessive quantifiers will always return either the same match as greedy quantifiers, or if backtracking is required they will return no match. Therefore, posessive quantifiers should be used when you know backtracking is _not_ necessary, allowing increased performance.
 
 ### 🖍️ "Gobbledygook" Groups
+
+Groups allow you to pull out specific parts of a match. For example, given the string `Peter Piper picked a peck of pickled peppers` and the regex literal `[peck]+ of (\w+) `, an additional "capturing group" group 1 is returned.
+
+By default, the whole match begins at group 0, and then every group after is _n_ where _n_ is 1 + the previous capturing group.
+
+<img src="https://user-images.githubusercontent.com/47064842/126186310-8509414f-04ae-4216-b123-816b7c0f22aa.png" width="260" height="auto">
+
+
 
 | Syntax     | Group       | Matches                                                         | Example String     | Example Expression      | Example Match      |
 | ---------- | ----------- | --------------------------------------------------------------- | ------------------ | ----------------------- | ------------------ |

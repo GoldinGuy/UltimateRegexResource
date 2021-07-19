@@ -5,7 +5,8 @@ import {
 	View,
 	SafeAreaView,
 	TouchableHighlight,
-	Keyboard
+	Keyboard,
+	ScrollView
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import Board from "../components/Board";
@@ -168,7 +169,7 @@ const HomePage = () => {
 
 	return (
 		<SafeAreaView style={styles.safearea}>
-			<View style={styles.container}>
+			<ScrollView contentContainerStyle={styles.container}>
 				<StatusBar style="light" />
 
 				<View style={styles.navbar}>
@@ -206,7 +207,7 @@ const HomePage = () => {
 					origin={{ x: -10, y: 0 }}
 					colors={[colors.red, colors.blue]}
 				/>
-			</View>
+			</ScrollView>
 			<RedokuWebView ref={dictRef} />
 		</SafeAreaView>
 	);
