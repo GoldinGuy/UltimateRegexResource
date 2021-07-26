@@ -32,6 +32,8 @@ For that reason, I've compiled a selection of the most helpful and commonly used
 
 This repo contains a powerpoint presentation that can be viewed online [here](https://docs.google.com/presentation/d/1u_H23wZYeqcIjsfTYhNs1gpEOwNYHbV63PBlPBIB3hI/edit?usp=sharing).
 
+The [lab](https://github.com/GoldinGuy/UltimateRegexResource/blob/master/lab.md) folder of this repo contains real-world practice problems and links to gamified resources for the DSC event. You are welcome to try your hand at some of them.
+
 The [Redoku](https://github.com/GoldinGuy/UltimateRegexResource/tree/master/RedokuRN) folder of this repo contains the app ["Redoku,"](https://github.com/GoldinGuy/UltimateRegexResource/tree/master/RedokuRN) a simple React Native application created for this event that allows you to hone your Regex skills through sudoku-like puzzles. This was heavily based on [redoku](https://github.com/padolsey/redoku), an awesome website with the same name. Thank you to [@padolsey](https://github.com/padolsey) for granting permission to use the name "Redoku!" Download it below!
 
 | iOS | Android | 
