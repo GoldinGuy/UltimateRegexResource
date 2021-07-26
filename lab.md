@@ -1,9 +1,26 @@
-## UltimateRegexResource Lab
+# UltimateRegexResource Lab
 
 Below are a selection of ways to hone and practice your Regex skills. For the DSC event, we'll start together on the first part, and then afterwards you can choose a method of practice that appeals to you!
 
-### Part 1: Learn Regex Through Prompts
+### Part 1: Learn Regex Through Real World Examples
 
+Email Validation:
+
+[Question 1 Link](https://regex101.com/r/vguTVG/1): Match all provided emails
+[Question 1 Solution](https://regex101.com/r/pqdIHc/1)
+
+[Question 2 Link](https://regex101.com/r/WvWWGh/1): Match only valid emails
+[Question 2 Solution](https://regex101.com/r/PeDvSi/1)
+
+Password Security:
+
+[Question Link](https://regex101.com/r/lOczRX/1): Match any password 6-8 characters including letters or numbers, any case, in any order
+[Question Solution](https://regex101.com/r/E38Qoc/1)
+
+Telephone Numbers:
+
+[Question Link](https://regex101.com/r/NM9962/1): Match any telephone number in the US format 123-456-7890 or (123)456-7890
+[Question Solution](https://regex101.com/r/t9ur6R/1)
 
 
 ### Part 2: Practice Regex Through Games!
