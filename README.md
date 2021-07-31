@@ -6,7 +6,7 @@
 [![Contributors][contributors-shield]][contributors-url]
 [![Issues][issues]][issues-url]
 
-<!-- 📄 TODO: Add after presentation [**Watch a recording of the Regex presentation here!**](https://www.youtube.com/watch?v=mqhDMv6nIVI) -->
+[**Watch a recording of the Regex presentation here!**](https://www.youtube.com/watch?v=Ql2uowN4oTU&feature=youtu.be)
 
 Regex, or [regular expressions](https://en.wikipedia.org/wiki/Regular_expression), are patterns used to match strings. Regex is commonly used for searching/filtering strings for information, input validation, and web scraping. "Real world" examples include everything from validating email addresses to formatting class names in a grades app.
 
