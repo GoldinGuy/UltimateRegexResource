@@ -8,9 +8,9 @@
 
 [**Watch a recording of the Regex presentation here!**](https://www.youtube.com/watch?v=Ql2uowN4oTU&feature=youtu.be)
 
-Regex, or [regular expressions](https://en.wikipedia.org/wiki/Regular_expression), are patterns used to match strings. Regex is commonly used for searching/filtering strings for information, input validation, and web scraping. "Real world" examples include everything from validating email addresses to formatting class names in a grades app.
+Regex, or [regular expressions](https://en.wikipedia.org/wiki/Regular_expression), are patterns used to match strings. Regex is commonly used for searching/filtering strings for information, input validation, and web scraping. "Real-world" examples include everything from validating email addresses to formatting class names in a grades app.
 
-Regex is incredibly powerful, but due to its seemingly unintelligible nature it's also often intimidating to learn and difficult to remember.
+Regex is incredibly powerful, but due to its seemingly unintelligible nature, it's also often intimidating to learn and difficult to remember.
 
 <img src="https://user-images.githubusercontent.com/47064842/125002295-9a780980-e022-11eb-9b29-4411e2780aaa.png" width="350" height="auto">
 <!-- ![image](https://user-images.githubusercontent.com/47064842/124194070-ee6c7680-da95-11eb-8f9a-0a2d3f7c4f33.png) -->
@@ -49,11 +49,11 @@ The [Redoku](https://github.com/GoldinGuy/UltimateRegexResource/tree/master/Redo
 
 - Regex has different flavors depending on the language you are using. Different engines support different features and some patterns have different meanings. While this resource attempts to cover as much as possible, there may be slight differences. 
 - UltimateRegexResource uses Javascript as the default regex engine. If there are differences between languages I attempt to note them. For a full review of what regex patterns are legal in each language, check out this awesome [gist](https://gist.github.com/CMCDragonkai/6c933f4a7d713ef712145c5eb94a1816).
-- Anywhere used below, `character` represents either a letter, digit or symbol.
+- Anywhere used below, `character` represents either a letter, digit, or symbol.
 
 ### ✒️ "Balderdash" Basics (of Regex)
 
-- Regular expressions start and end with "delimiters." For example, Javascript regex literals generally have "slash" characters `/`, and Python regex usually begins with `r"` and end with `"`. _(While Python doesn't necessarily have Regex literals perse, Regex is written more easily using raw strings to avoid worrying about string escapes)_.
+- Regular expressions start and end with "delimiters." For example, Javascript regex literals generally have "slash" characters `/`, and Python regex usually begins with `r"` and ends with `"`. _(While Python doesn't necessarily have Regex literals perse, Regex is written more easily using raw strings to avoid worrying about string escapes)_.
 - Patterns return the first [case-sensitive](https://en.wikipedia.org/wiki/Case_sensitivity) match they find by default.
 
 Therefore: given the sample string `I scream, you scream, we all SCREAM for ice cream`, `/scream/` matches the first instance of "scream."
@@ -122,7 +122,7 @@ There are also a few (mostly) semantically identical patterns in Golang and PHP.
 | `[[:punct:]]`    |  _punctuation class_            | Any of `?!.,:;`  | `Woodchuck could chuck 33 wood logs.` | `[[:punct:]]+`           | `.`       |
 
 
-In some flavors of regex the above are also called "Character Classes."
+In some flavors of regex, the above are also called "Character Classes."
 
 ### 🖊️ "Jargon" Quantifiers
 
@@ -144,9 +144,9 @@ Beyond standard quantifiers, there are a few additional modifiers: _greedy_, _la
 | `*+`   | _0+ possessive_ | 0 or more of the preceding expression, using as many chars as possible, without backtracking _(Not supported in JS or PY)_ | `abccc`        | `c*+`              | `ccc`         |
 | `++`   | _1+ possessive_ | 1 or more of the preceding expression, using as many chars as possible, without backtracking _(Not supported in JS or PY)_ | `abccc`        | `c++`              | `ccc`         |
 
-Put simply, greedy quantifiers match as much as possible, lazy as little as possible, and possessive as much as possible without backtracking.
+Put simply, greedy quantifiers match as much as possible, lazy as little as possible and possessive as much as possible without backtracking.
 
-What this means in practice is that possessive quantifiers will always return either the same match as greedy quantifiers, or if backtracking is required they will return no match. Therefore, posessive quantifiers should be used when you know backtracking is _not_ necessary, allowing increased performance.
+What this means in practice is that possessive quantifiers will always return either the same match as greedy quantifiers or if backtracking is required they will return no match. Therefore, posessive quantifiers should be used when you know backtracking is _not_ necessary, allowing increased performance.
 
 ### 🖍️ "Gobbledygook" Groups
 
@@ -171,10 +171,10 @@ By default, the whole match begins at group 0, and then every group after is _n_
 
 | Syntax | Anchor                  | Matches                                             | Example String       | Example Expression | Example Match |
 | ------ | ----------------------- | --------------------------------------------------- | -------------------- | ------------------ | ------------- |
-| `^`    | _start_                 | Start of string                                     | `she sells seasells` | `^\w+`             | `she`         |
-| `$`    | _end_                   | End of string                                       | `she sells seasells` | `\w+$`             | `seashells`   |
-| `\b`   | _word boundary_         | Between a character matched and not matched by `\w` | `she sells seasells` | `s\b`              | `s`           |
-| `\B`   | **NOT** _word boundary_ | Between two characters matched by `\w`              | `she sells seasells` | `\w+$`             | `seashells`   |
+| `^`    | _start_                 | Start of string                                     | `she sells seashells` | `^\w+`             | `she`         |
+| `$`    | _end_                   | End of string                                       | `she sells seashells` | `\w+$`             | `seashells`   |
+| `\b`   | _word boundary_         | Between a character matched and not matched by `\w` | `she sells seashells` | `s\b`              | `s`           |
+| `\B`   | **NOT** _word boundary_ | Between two characters matched by `\w`              | `she sells seashells` | `\w+$`             | `seashells`   |
 
 There are additional anchors available that are unaffected by multiline mode [m](#-flapdoodle-flags).
 
@@ -191,7 +191,7 @@ There are additional anchors available that are unaffected by multiline mode [m]
 - [Regexr](https://regexr.com/), another way to test your expressions
 - [Rubular](https://rubular.com/), a Ruby-based regex tester w/ quick reference
 - [Regex.Info](https://www.regular-expressions.info/), a plain but detailed guide to regex
-- [RexEgg](http://www.rexegg.com/), the self proclaimed "world's most tyrannisaurical regex tutorial"
+- [RexEgg](http://www.rexegg.com/), the self-proclaimed "world's most tyrannisaurical regex tutorial"
 - [CodeAcademy Regex Tutorial](https://www.codecademy.com/learn/introduction-to-regular-expressions), a 1-hour course w/ certification
 - [SitePoint Learn Regex](https://www.sitepoint.com/learn-regex/), a great tutorial of the fundamental concepts
 - [Regex Basics](https://livinglifetechway.com/regex-the-basics/?utm_source=quora&utm_medium=referral&utm_campaign=awareness), as stated, with no deep knowledge required
@@ -201,7 +201,7 @@ There are additional anchors available that are unaffected by multiline mode [m]
 - [Difference between [] and () in Regex](https://stackoverflow.com/questions/9801630/what-is-the-difference-between-square-brackets-and-parentheses-in-a-regex), a SO post that hopefully helps
 - [MIT Regex Printable PDF Cheatsheet](https://web.mit.edu/hackl/www/lab/turkshop/slides/regex-cheatsheet.pdf), for those who need the physical copy
 - [Stanford Regex Printable PDF Cheatsheet](https://stanford.edu/~wpmarble/webscraping_tutorial/regex_cheatsheet.pdf), for those who prefer a pinker physical copy
-- [When/How Not To Use Regex](https://blog.codinghorror.com/regular-expressions-now-you-have-two-problems/), article by founder of SO that discusses what you'd expect from the title
+- [When/How Not To Use Regex](https://blog.codinghorror.com/regular-expressions-now-you-have-two-problems/), an article by the founder of SO that discusses what you'd expect from the title
 - [Awesome Regex Resources](https://github.com/Varunram/Awesome-Regex-Resources), a comprehensive list of Regex books, articles, and utilities far larger than this
 
 ### 👥 "Codswallop" Contributing
